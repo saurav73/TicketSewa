@@ -1,0 +1,45 @@
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: ticketsewa
+    ports:
+      - "3306:3306"
+    volumes:
+      - ts_mysql:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-ppassword"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:mysql://db:3306/ticketsewa?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Kathmandu
+      DB_USER: root
+      DB_PASS: password
+      JWT_SECRET: ${JWT_SECRET:-change-me-to-a-long-random-secret-at-least-32-chars}
+      FRONTEND_URL: http://localhost:3000
+      ESEWA_SUCCESS_URL: http://localhost:3000/payment/success
+      ESEWA_FAILURE_URL: http://localhost:3000/payment/failed
+      ESEWA_DEMO_MODE: "true"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: http://localhost:8080
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  ts_mysql:

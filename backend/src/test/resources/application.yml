@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:ticketsewa-test;MODE=MySQL;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+app:
+  seed-demo: false
+  jwt:
+    secret: test-secret-that-is-long-enough-for-hs256-ok
+    expiry-hours: 1
+  frontend-url: http://localhost:5173
+esewa:
+  merchant-code: EPAYTEST
+  payment-url: https://uat.esewa.com.np/epay/main
+  verification-url: https://uat.esewa.com.np/epay/transrec
+  success-url: http://localhost:5173/payment/success
+  failure-url: http://localhost:5173/payment/failed
+  demo-mode: true

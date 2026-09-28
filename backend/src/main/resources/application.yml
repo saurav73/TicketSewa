@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/ticketsewa?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Kathmandu}
+    username: ${DB_USER:root}
+    password: ${DB_PASS:password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:ticketsewa-dev-secret-must-be-at-least-32-chars-long}
+    expiry-hours: 24
+  seed-demo: ${SEED_DEMO:true}
+  frontend-url: ${FRONTEND_URL:http://localhost:5173}
+
+esewa:
+  merchant-code: ${ESEWA_MERCHANT:EPAYTEST}
+  payment-url: ${ESEWA_PAYMENT_URL:https://uat.esewa.com.np/epay/main}
+  verification-url: ${ESEWA_VERIFICATION_URL:https://uat.esewa.com.np/epay/transrec}
+  # eSewa redirects the buyer's browser here after payment; the SPA then
+  # calls POST /api/payments/verify with ?oid &amt &refId.
+  success-url: ${ESEWA_SUCCESS_URL:http://localhost:5173/payment/success}
+  failure-url: ${ESEWA_FAILURE_URL:http://localhost:5173/payment/failed}
+  # demo-mode simulates the eSewa callback so the app is fully demoable
+  # without merchant credentials. Disable in production.
+  demo-mode: ${ESEWA_DEMO_MODE:true}
+
+logging:
+  level:
+    com.ticketsewa: INFO
