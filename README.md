@@ -35,7 +35,7 @@ flowchart LR
         INV[TicketTierRepository\natomic reserve/release]
         PAY[EsewaService\nform build + transrec verify]
         TIX[TicketService\nQR via ZXing\natomic check-in]
-        SCHED[@Scheduled expiry]
+        SCHED["@Scheduled expiry"]
     end
     DB[(MySQL 8)]
     ES[eSewa UAT / live]
