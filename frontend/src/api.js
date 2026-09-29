@@ -1,7 +1,11 @@
 import { demoApi } from './demoApi';
 
-const BASE = (import.meta.env.VITE_API_URL || 'http://localhost:8080').replace(/\/$/, '');
-export const DEMO_MODE = import.meta.env.VITE_DEMO_MODE === 'true';
+// Auto demo-mode: when no API URL is configured (e.g. the static Vercel build),
+// the app runs fully in-browser via demoApi. Set VITE_API_URL to point at a
+// real backend, or force demo with VITE_DEMO_MODE=true.
+const API_URL = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
+export const DEMO_MODE = import.meta.env.VITE_DEMO_MODE === 'true' || !API_URL;
+const BASE = API_URL || 'http://localhost:8080';
 export const apiBase = BASE;
 
 export async function api(path, { method = 'GET', body, auth = true } = {}) {
