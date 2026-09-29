@@ -9,7 +9,7 @@
  */
 import QRCode from 'qrcode';
 
-const KEY = 'ts_demo_v1';
+const KEY = 'ts_demo_v2';
 const LATENCY = 250;
 const ALPHABET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 
@@ -29,13 +29,151 @@ function seed() {
     ],
     events: [
       { id: 1, organizerEmail: 'organizer@demo.np', title: 'Himalayan Beats: Live in Lalitpur',
-        description: 'An open-air night of Nepali indie, folk fusion and electronic sets under the winter sky. Gates open 4 PM.',
-        venue: 'Patan Durbar Square', city: 'Lalitpur',
-        startsAt: new Date(now + 21 * day).toISOString(), endsAt: new Date(now + 21 * day + 5 * 3600000).toISOString(), status: 'PUBLISHED' },
+        tagline: 'An open-air night of Nepali indie, folk fusion and electronica beneath the winter sky.',
+        description: 'Himalayan Beats returns to Patan Durbar Square for its biggest edition yet — five acts, one historic stage, and 3,000 voices singing along under the stars.\n\nThe square\'s ancient courtyards become a natural amphitheatre: sarangi melodies bleed into synth basslines, folk percussion meets four-on-the-floor, and the headliner closes with a set the valley will talk about for months. Food stalls from Lalitpur\'s best kitchens line the palace courtyard from 4 PM.',
+        category: 'Music', image: '/img/concert.jpg', featured: true, attending: 2841,
+        tags: ['live music', 'festival', 'outdoor', 'concert'],
+        venue: 'Patan Durbar Square', venueAddress: 'Mangal Bazaar, Lalitpur', city: 'Lalitpur',
+        startsAt: new Date(now + 21 * day).toISOString(), endsAt: new Date(now + 21 * day + 6 * 3600000).toISOString(), status: 'PUBLISHED',
+        lineup: [
+          { name: 'The Midnight Karavan', role: 'Headliner · indie rock' },
+          { name: 'Sahara Collective', role: 'Folk fusion ensemble' },
+          { name: 'Asta & The Echoes', role: 'Opening act · dream pop' },
+          { name: 'DJ Yuvraj', role: 'Closing electronica set' }
+        ],
+        schedule: [
+          { time: '4:00 PM', title: 'Gates open', desc: 'Food stalls, merch booth and sunset views over the square.' },
+          { time: '5:30 PM', title: 'Asta & The Echoes', desc: 'Dream-pop opener as the light fades.' },
+          { time: '7:00 PM', title: 'Sahara Collective', desc: 'Sarangi, madal and synths — folk fusion at full power.' },
+          { time: '8:30 PM', title: 'The Midnight Karavan', desc: 'Headline set. Expect the new album played front to back.' },
+          { time: '10:30 PM', title: 'DJ Yuvraj', desc: 'Closing electronica set till late.' }
+        ],
+        organizerAbout: 'Sagar Events has staged 40+ live shows across the Kathmandu Valley since 2019.',
+        faq: [
+          { q: 'What is the refund policy?', a: 'Full refund if the event is cancelled. 50% refund for cancellations up to 7 days before the show — just email us your order ID.' },
+          { q: 'Is there an age limit?', a: 'All ages welcome. Children under 12 enter free with a ticket-holding guardian.' },
+          { q: 'Can I re-enter after leaving?', a: 'No re-entry after 8:00 PM for security reasons.' },
+          { q: 'Can I bring food or drinks?', a: 'Outside food and drinks are not allowed, but 12+ local food stalls will be inside the venue.' }
+        ] },
       { id: 2, organizerEmail: 'organizer@demo.np', title: 'Kathmandu Tech Summit 2026',
-        description: 'Two days of talks and workshops on backend engineering, IoT and AI — with a builder showcase on day two.',
-        venue: 'Nepal Academy Hall', city: 'Kathmandu',
-        startsAt: new Date(now + 45 * day).toISOString(), endsAt: new Date(now + 46 * day).toISOString(), status: 'PUBLISHED' }
+        tagline: 'Two days of talks, workshops and a builder showcase for Nepal\'s engineering community.',
+        description: 'The summit is where Nepal\'s builders meet: backend engineers, IoT tinkerers, AI researchers and founders, across two packed days at Nepal Academy Hall.\n\nDay one is talks — scaling systems, edge computing, applied AI — from engineers shipping real products. Day two is hands-on: workshops on Spring Boot, ESP32 fleets and RAG pipelines, capped at 40 seats each, plus an evening builder showcase where ten teams demo what they shipped that month.',
+        category: 'Tech', image: '/img/tech.jpg', attending: 1204,
+        tags: ['conference', 'developers', 'AI', 'IoT', 'workshops'],
+        venue: 'Nepal Academy Hall', venueAddress: 'Kamaladi, Kathmandu', city: 'Kathmandu',
+        startsAt: new Date(now + 45 * day).toISOString(), endsAt: new Date(now + 46 * day + 8 * 3600000).toISOString(), status: 'PUBLISHED',
+        lineup: [
+          { name: 'Anisha Karki', role: 'Keynote · Scaling systems to millions' },
+          { name: 'Bibek Thapa', role: 'IoT at the edge' },
+          { name: 'Prerana Shah', role: 'Applied AI in production' },
+          { name: 'Rohan Shrestha', role: 'Postgres deep dive' }
+        ],
+        schedule: [
+          { time: 'Day 1 · 9:00 AM', title: 'Registration & coffee', desc: 'Badge pickup and networking.' },
+          { time: 'Day 1 · 10:00 AM', title: 'Keynote', desc: 'Anisha Karki on scaling systems to millions of users.' },
+          { time: 'Day 1 · 11:30 AM', title: 'Talk track', desc: 'Four 30-minute engineering talks across two halls.' },
+          { time: 'Day 1 · 2:00 PM', title: 'Panel: AI in production', desc: 'What actually works, what does not.' },
+          { time: 'Day 2 · 10:00 AM', title: 'Workshops', desc: 'Hands-on: Spring Boot, ESP32 fleets, RAG pipelines. 40 seats each.' },
+          { time: 'Day 2 · 5:00 PM', title: 'Builder showcase', desc: 'Ten teams demo what they shipped. Audience vote for best build.' }
+        ],
+        organizerAbout: 'Sagar Events partners with local engineering communities to run the valley\'s most practical tech gatherings.',
+        faq: [
+          { q: 'Do I need a student ID for the Student tier?', a: 'Yes — bring a valid student ID to registration. Without one you can upgrade to Professional at the door.' },
+          { q: 'Are the talks recorded?', a: 'Keynotes and the panel are recorded and shared with all ticket holders after the summit.' },
+          { q: 'Can I transfer my ticket?', a: 'Yes, tickets are transferable until 48 hours before the event from your My Tickets page.' }
+        ] },
+      { id: 3, organizerEmail: 'organizer@demo.np', title: 'Neon Nights: DJ Rave',
+        tagline: 'Five DJs. One warehouse of light. The valley\'s biggest Halloween rave.',
+        description: 'Club Fahrenheit goes full Neon Nights for Halloween: five DJs across two rooms, a laser rig imported for one night only, and a costume contest at midnight with Rs. 50,000 in prizes.\n\nRoom one is peak-time techno and hard groove; room two is drum & bass and dubstep till 3 AM. Costumes encouraged — the best-dressed raver takes home the grand prize.',
+        category: 'Nightlife', image: '/img/dj.jpg', attending: 932,
+        tags: ['dj', 'rave', 'halloween', '18+', 'club'],
+        venue: 'Club Fahrenheit', venueAddress: 'Thamel, Kathmandu', city: 'Kathmandu',
+        startsAt: new Date(now + 32 * day + 15 * 3600000).toISOString(), endsAt: new Date(now + 32 * day + 21 * 3600000).toISOString(), status: 'PUBLISHED',
+        lineup: [
+          { name: 'DJ Yuvraj', role: 'Headliner · peak-time techno' },
+          { name: 'Nisha Vibe', role: 'Drum & bass' },
+          { name: 'KTM Syndicate', role: 'Hard groove B2B' }
+        ],
+        schedule: [
+          { time: '9:00 PM', title: 'Doors open', desc: 'Early arrivals get the warm-up room and shorter bar lines.' },
+          { time: '10:30 PM', title: 'Room 2 opens', desc: 'Drum & bass and dubstep till late.' },
+          { time: '12:00 AM', title: 'Costume contest', desc: 'Rs. 50,000 in prizes for the best-dressed ravers.' },
+          { time: '1:00 AM', title: 'DJ Yuvraj headline set', desc: 'Peak-time techno closing the main room.' }
+        ],
+        organizerAbout: 'Sagar Events runs the Neon Nights series — four sold-out raves and counting.',
+        faq: [
+          { q: 'Is there an age limit?', a: 'Strictly 18+. Bring a valid photo ID — no ID, no entry, no refund.' },
+          { q: 'What is the costume policy?', a: 'Costumes encouraged but masks covering the full face must be removed at entry for ID checks.' },
+          { q: 'Is there parking?', a: 'Limited parking at the venue; ride-shares recommended after midnight.' }
+        ] },
+      { id: 4, organizerEmail: 'organizer@demo.np', title: 'Laugh Lab: Stand-up Night',
+        tagline: 'Six comics, two hours, zero mercy — the valley\'s sharpest stand-up lineup.',
+        description: 'Laugh Lab is Kathmandu\'s longest-running comedy night, and this edition packs six of the funniest voices in Nepal onto one stage: observational sets, improv games with the audience, and a no-holds-barred roast battle to close.\n\nThe Comedy Loft\'s brick-walled room seats just 160 — every seat feels front row, and shows regularly sell out days in advance.',
+        category: 'Comedy', image: '/img/comedy.jpg', attending: 418,
+        tags: ['stand-up', 'comedy', 'improv', 'nightlife'],
+        venue: 'The Comedy Loft', venueAddress: 'Jhamsikhel, Lalitpur', city: 'Lalitpur',
+        startsAt: new Date(now + 26 * day + 13 * 3600000).toISOString(), endsAt: new Date(now + 26 * day + 15 * 3600000).toISOString(), status: 'PUBLISHED',
+        lineup: [
+          { name: 'Sajan Malla', role: 'Headliner' },
+          { name: 'Diya Rai', role: 'Featured act' },
+          { name: 'The Improv Duo', role: 'Audience improv games' }
+        ],
+        schedule: [
+          { time: '7:00 PM', title: 'Doors & seating', desc: 'Bar opens; grab a good seat early.' },
+          { time: '7:30 PM', title: 'Opening sets', desc: 'Three rising comics, 10 minutes each.' },
+          { time: '8:30 PM', title: 'Diya Rai', desc: 'Featured 25-minute set.' },
+          { time: '9:15 PM', title: 'Roast battle finale', desc: 'Sajan Malla closes with the roast battle.' }
+        ],
+        organizerAbout: 'Sagar Events has produced 60+ comedy nights across the valley.',
+        faq: [
+          { q: 'Is the show in English or Nepali?', a: 'A mix — most comics switch between Nepali and English naturally.' },
+          { q: 'Is it suitable for kids?', a: 'Recommended 16+. Sets are uncensored.' }
+        ] },
+      { id: 5, organizerEmail: 'organizer@demo.np', title: 'Himalayan Food Fiesta',
+        tagline: '60+ stalls, two days, one very happy stomach — Nepal\'s biggest street-food gathering.',
+        description: 'Bhrikutimandap transforms into a street-food paradise: 60+ stalls serving everything from Newari bara and yomari to Korean corn dogs and wood-fired pizza, plus live cooking battles, a momo-eating championship, and a craft bazaar.\n\nThe Foodie Pass covers entry on both days plus tasting tokens worth Rs. 500 and skip-the-line access at the ten most popular stalls.',
+        category: 'Food', image: '/img/food.jpg', attending: 3560,
+        tags: ['food', 'festival', 'family', 'outdoor'],
+        venue: 'Bhrikutimandap Exhibition Ground', venueAddress: 'Pradarshani Marg, Kathmandu', city: 'Kathmandu',
+        startsAt: new Date(now + 39 * day).toISOString(), endsAt: new Date(now + 40 * day + 10 * 3600000).toISOString(), status: 'PUBLISHED',
+        lineup: [
+          { name: '60+ food stalls', role: 'Newari · Korean · Italian · Thakali & more' },
+          { name: 'Live cooking battles', role: 'Chef showdowns daily at 2 PM' },
+          { name: 'Momo-eating championship', role: 'Sunday finale' }
+        ],
+        schedule: [
+          { time: 'Day 1 · 11:00 AM', title: 'Fiesta opens', desc: 'All 60+ stalls fire up their grills.' },
+          { time: 'Day 1 · 2:00 PM', title: 'Cooking battle', desc: 'Four chefs, one mystery ingredient.' },
+          { time: 'Day 1 · 6:00 PM', title: 'Live folk music', desc: 'Acoustic sets over dinner.' },
+          { time: 'Day 2 · 3:00 PM', title: 'Momo-eating championship', desc: 'The finale the crowd comes for.' }
+        ],
+        organizerAbout: 'Sagar Events\' food festivals have drawn 25,000+ visitors across three editions.',
+        faq: [
+          { q: 'Is entry ticket inclusive of food?', a: 'Entry covers admission only; food is pay-per-stall. The Foodie Pass includes Rs. 500 in tasting tokens.' },
+          { q: 'Is the venue kid-friendly?', a: 'Very — kids under 8 enter free, with a dedicated play area.' }
+        ] },
+      { id: 6, organizerEmail: 'organizer@demo.np', title: 'Yatra Theatre Festival',
+        tagline: 'Three nights of contemporary Nepali theatre, from folk retellings to bold new writing.',
+        description: 'Yatra brings three productions to Gurukul Theatre: a folk retelling of the Mahabharata with live dhime baja, a razor-sharp new comedy about Kathmandu landlords, and a minimalist two-hander that won last year\'s national theatre award.\n\nEach evening ends with a 30-minute talkback — the cast and director take questions from the audience.',
+        category: 'Arts', image: '/img/theatre.jpg', attending: 267,
+        tags: ['theatre', 'drama', 'culture'],
+        venue: 'Gurukul Theatre', venueAddress: 'Baneshwor, Kathmandu', city: 'Kathmandu',
+        startsAt: new Date(now + 53 * day + 12 * 3600000).toISOString(), endsAt: new Date(now + 55 * day + 15 * 3600000).toISOString(), status: 'PUBLISHED',
+        lineup: [
+          { name: 'Mahabharata: Folk Retelling', role: 'Night 1 · with live dhime baja' },
+          { name: 'Gharbeti', role: 'Night 2 · comedy about Kathmandu landlords' },
+          { name: 'Dui Kinaar', role: 'Night 3 · award-winning two-hander' }
+        ],
+        schedule: [
+          { time: 'Night 1 · 6:00 PM', title: 'Mahabharata: Folk Retelling', desc: 'Epic folk theatre with live percussion.' },
+          { time: 'Night 2 · 6:00 PM', title: 'Gharbeti', desc: 'A comedy every tenant will recognize.' },
+          { time: 'Night 3 · 6:00 PM', title: 'Dui Kinaar', desc: 'National theatre award winner. Talkback follows.' }
+        ],
+        organizerAbout: 'Sagar Events supports Nepali stage arts with 15+ theatre productions staged since 2021.',
+        faq: [
+          { q: 'What language are the plays in?', a: 'Primarily Nepali, with English surtitles on all three nights.' },
+          { q: 'How long is each show?', a: '90–120 minutes including the audience talkback.' }
+        ] }
     ],
     tiers: [
       { id: 1, eventId: 1, name: 'General', priceNpr: 800, quantityTotal: 500, quantitySold: 137 },
@@ -43,7 +181,15 @@ function seed() {
       { id: 3, eventId: 1, name: 'VIP Deck', priceNpr: 3500, quantityTotal: 50, quantitySold: 41 },
       { id: 4, eventId: 2, name: 'Student', priceNpr: 500, quantityTotal: 300, quantitySold: 58 },
       { id: 5, eventId: 2, name: 'Professional', priceNpr: 2500, quantityTotal: 400, quantitySold: 203 },
-      { id: 6, eventId: 2, name: 'Workshop + Conference', priceNpr: 5000, quantityTotal: 100, quantitySold: 77 }
+      { id: 6, eventId: 2, name: 'Workshop + Conference', priceNpr: 5000, quantityTotal: 100, quantitySold: 77 },
+      { id: 7, eventId: 3, name: 'Early Bird', priceNpr: 1000, quantityTotal: 150, quantitySold: 150 },
+      { id: 8, eventId: 3, name: 'General', priceNpr: 1800, quantityTotal: 300, quantitySold: 214 },
+      { id: 9, eventId: 4, name: 'Regular', priceNpr: 600, quantityTotal: 120, quantitySold: 88 },
+      { id: 10, eventId: 4, name: 'Front Row', priceNpr: 1000, quantityTotal: 40, quantitySold: 33 },
+      { id: 11, eventId: 5, name: 'Entry', priceNpr: 300, quantityTotal: 1000, quantitySold: 612 },
+      { id: 12, eventId: 5, name: 'Foodie Pass', priceNpr: 800, quantityTotal: 400, quantitySold: 351 },
+      { id: 13, eventId: 6, name: 'Balcony', priceNpr: 500, quantityTotal: 150, quantitySold: 97 },
+      { id: 14, eventId: 6, name: 'Orchestra', priceNpr: 900, quantityTotal: 100, quantitySold: 64 }
     ],
     orders: [],
     tickets: []

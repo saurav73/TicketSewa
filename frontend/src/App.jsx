@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
 import { AuthProvider, useAuth } from './auth';
 import Home from './pages/Home';
 import EventDetail from './pages/EventDetail';
@@ -31,25 +31,35 @@ function Nav() {
   );
 }
 
+function Shell() {
+  const loc = useLocation();
+  const isHome = loc.pathname === '/';
+  return (
+    <>
+      <Nav />
+      <main className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/events/:id" element={<EventDetail />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/checkout/:orderId" element={<Checkout />} />
+          <Route path="/payment/success" element={<PaymentSuccess />} />
+          <Route path="/payment/failed" element={<PaymentFailed />} />
+          <Route path="/tickets" element={<MyTickets />} />
+          <Route path="/organizer" element={<Organizer />} />
+        </Routes>
+      </main>
+      {!isHome && <footer className="footer">TicketSewa — event ticketing for Nepal · eSewa payments · QR check-in</footer>}
+    </>
+  );
+}
+
 export default function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Nav />
-        <main className="container">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/events/:id" element={<EventDetail />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/checkout/:orderId" element={<Checkout />} />
-            <Route path="/payment/success" element={<PaymentSuccess />} />
-            <Route path="/payment/failed" element={<PaymentFailed />} />
-            <Route path="/tickets" element={<MyTickets />} />
-            <Route path="/organizer" element={<Organizer />} />
-          </Routes>
-        </main>
-        <footer className="footer">TicketSewa — event ticketing for Nepal · eSewa payments · QR check-in</footer>
+        <Shell />
       </AuthProvider>
     </BrowserRouter>
   );
