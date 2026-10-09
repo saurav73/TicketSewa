@@ -119,6 +119,10 @@ All via environment variables (see `backend/src/main/resources/application.yml`)
 `ESEWA_PAYMENT_URL`, `ESEWA_VERIFICATION_URL`, `ESEWA_SUCCESS_URL`,
 `ESEWA_FAILURE_URL`, `ESEWA_DEMO_MODE`, `SEED_DEMO`.
 
+**Frontend** (Vite, via `.env`): `VITE_API_URL` (backend base URL — when unset,
+the app runs fully in-browser in demo mode), `VITE_DEMO_MODE` (`true` forces
+demo mode even when `VITE_API_URL` is set).
+
 ## Tech
 
 Java 17 · Spring Boot 3.2 (Web, Data JPA, Security, Validation) · MySQL 8 ·
