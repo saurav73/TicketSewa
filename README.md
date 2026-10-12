@@ -115,7 +115,9 @@ cd backend && mvn test
 ## Configuration
 
 All via environment variables (see `backend/src/main/resources/application.yml`):
-`DB_URL`, `DB_USER`, `DB_PASS`, `JWT_SECRET`, `FRONTEND_URL`, `ESEWA_MERCHANT`,
+`PORT` (default `8080`), `DB_URL`, `DB_USER`, `DB_PASS`, `DB_DRIVER` (JDBC
+driver class, default `com.mysql.cj.jdbc.Driver` — set to
+`org.postgresql.Driver` for Postgres), `JWT_SECRET`, `FRONTEND_URL`, `ESEWA_MERCHANT`,
 `ESEWA_PAYMENT_URL`, `ESEWA_VERIFICATION_URL`, `ESEWA_SUCCESS_URL`,
 `ESEWA_FAILURE_URL`, `ESEWA_DEMO_MODE`, `SEED_DEMO`.
 
