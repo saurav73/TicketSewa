@@ -121,7 +121,7 @@ driver class, default `com.mysql.cj.jdbc.Driver` — set to
 `ESEWA_PAYMENT_URL`, `ESEWA_VERIFICATION_URL`, `ESEWA_SUCCESS_URL`,
 `ESEWA_FAILURE_URL`, `ESEWA_DEMO_MODE`, `SEED_DEMO`.
 
-**Frontend** (Vite, via `.env`): `VITE_API_URL` (backend base URL — when unset,
+**Frontend** (Vite, via `.env` — see `frontend/.env.example`): `VITE_API_URL` (backend base URL — when unset,
 the app runs fully in-browser in demo mode), `VITE_DEMO_MODE` (`true` forces
 demo mode even when `VITE_API_URL` is set).
 
