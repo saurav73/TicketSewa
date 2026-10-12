@@ -9,6 +9,10 @@ import java.io.ByteArrayOutputStream;
 
 @Service
 public class QrCodeService {
+  /**
+   * Renders the given content (typically a ticket check-in code) as a
+   * 320x320 PNG QR code and returns the raw bytes.
+   */
   public byte[] png(String content) {
     try {
       var matrix = new QRCodeWriter().encode(content, BarcodeFormat.QR_CODE, 320, 320);

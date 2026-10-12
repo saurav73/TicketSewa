@@ -16,6 +16,11 @@ public class CustomUserDetailsService implements UserDetailsService {
     this.users = users;
   }
 
+  /**
+   * Spring Security entry point: loads the user by email for authentication,
+   * mapping the app role onto a granted authority (e.g. ROLE_ORGANIZER).
+   * Throws {@link UsernameNotFoundException} when the email is unknown.
+   */
   @Override
   public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
     User u = users.findByEmail(email)
@@ -25,6 +30,11 @@ public class CustomUserDetailsService implements UserDetailsService {
         List.of(new SimpleGrantedAuthority("ROLE_" + u.getRole().name())));
   }
 
+  /**
+   * Loads the raw domain {@link User} by email for places where the full
+   * entity (not just auth details) is needed. Throws when the email is
+   * unknown.
+   */
   public User loadDomainUser(String email) {
     return users.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException(email));
   }

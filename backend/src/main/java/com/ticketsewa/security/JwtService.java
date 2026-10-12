@@ -21,6 +21,11 @@ public class JwtService {
     this.expiryMillis = expiryHours * 3_600_000L;
   }
 
+  /**
+   * Issues a signed JWT for the given user. The email becomes the subject and
+   * the role is stored as a claim; the token expires after the configured
+   * number of hours (24 by default).
+   */
   public String generate(String email, String role) {
     Instant now = Instant.now();
     return Jwts.builder()
@@ -32,10 +37,18 @@ public class JwtService {
         .compact();
   }
 
+  /**
+   * Returns the subject (user email) of a valid signed token.
+   * Throws if the token is invalid, expired, or tampered with.
+   */
   public String extractEmail(String token) {
     return parse(token).getPayload().getSubject();
   }
 
+  /**
+   * Checks whether a token is well-formed, signed with this service's key,
+   * and not expired. Never throws; returns false for any invalid token.
+   */
   public boolean isValid(String token) {
     try {
       parse(token);
