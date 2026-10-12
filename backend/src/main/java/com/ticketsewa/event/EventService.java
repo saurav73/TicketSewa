@@ -28,18 +28,22 @@ public class EventService {
     this.seats = seats;
   }
 
+  /** Input for one ticket tier when creating an event. */
   public record TierInput(@NotBlank String name, @Min(0) int priceNpr, @Min(1) int quantity) {}
+  /** Request body for creating an event; at least one tier is required. */
   public record CreateEventRequest(
       @NotBlank String title, String description,
       @NotBlank String venue, @NotBlank String city,
       @NotNull LocalDateTime startsAt, LocalDateTime endsAt,
       String bannerUrl, @Size(min = 1) List<TierInput> tiers) {}
 
+  /** Public view of a ticket tier, including remaining seats. */
   public record TierDto(Long id, String name, int priceNpr, int quantityTotal, int quantitySold, int remaining) {
     static TierDto of(TicketTier t) {
       return new TierDto(t.getId(), t.getName(), t.getPriceNpr(), t.getQuantityTotal(), t.getQuantitySold(), t.getRemaining());
     }
   }
+  /** Public view of an event with its tiers, safe to expose on the public API. */
   public record EventDto(Long id, String title, String description, String venue, String city,
                          LocalDateTime startsAt, LocalDateTime endsAt, String bannerUrl,
                          String status, String organizerName, List<TierDto> tiers) {
@@ -50,17 +54,26 @@ public class EventService {
     }
   }
 
+  /** Lists published events, soonest first, with tiers sorted by price. */
   public Page<EventDto> published(Pageable pageable) {
     return events.findByStatusOrderByStartsAtAsc(EventStatus.PUBLISHED, pageable)
         .map(e -> EventDto.of(e, tiers.findByEventIdOrderByPriceNprAsc(e.getId()).stream().map(TierDto::of).toList()));
   }
 
+  /**
+   * Returns a single published event. Unpublished, cancelled, or missing
+   * events all look like "not found" so internal status never leaks.
+   */
   public EventDto getPublished(Long id) {
     Event e = events.findById(id).orElseThrow(() -> ApiException.notFound("Event not found"));
     if (e.getStatus() != EventStatus.PUBLISHED) throw ApiException.notFound("Event not found");
     return EventDto.of(e, tiers.findByEventIdOrderByPriceNprAsc(id).stream().map(TierDto::of).toList());
   }
 
+  /**
+   * Creates an event (immediately published) with its ticket tiers.
+   * Organizers and admins only; rejects events scheduled in the past.
+   */
   @Transactional
   @PreAuthorize("hasAnyRole('ORGANIZER','ADMIN')")
   public EventDto create(String email, CreateEventRequest req) {
@@ -79,6 +92,10 @@ public class EventService {
     return EventDto.of(e, dtos);
   }
 
+  /**
+   * Cancels an event. The owning organizer or any admin may cancel; anyone
+   * else gets a forbidden error.
+   */
   @Transactional
   @PreAuthorize("hasAnyRole('ORGANIZER','ADMIN')")
   public void cancel(String email, Long id) {
@@ -89,6 +106,7 @@ public class EventService {
     e.setStatus(EventStatus.CANCELLED);
   }
 
+  /** Lists the events owned by the given organizer, newest first. */
   public List<EventDto> myEvents(String email) {
     User me = userDetails.loadDomainUser(email);
     return events.findByOrganizerIdOrderByStartsAtDesc(me.getId()).stream()
@@ -102,6 +120,11 @@ public class EventService {
     seats.broadcast(eventId, dtos);
   }
 
+  /**
+   * Opens a server-sent-events stream of live seat counts for the event.
+   * Only published events are subscribable; a current snapshot is pushed
+   * immediately so the client never waits for the first update.
+   */
   public org.springframework.web.servlet.mvc.method.annotation.SseEmitter subscribeSeats(Long eventId) {
     // sanity: event must exist and be published
     getPublished(eventId);
