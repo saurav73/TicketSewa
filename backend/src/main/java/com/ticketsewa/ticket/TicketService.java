@@ -29,6 +29,7 @@ public class TicketService {
     this.userDetails = userDetails;
   }
 
+  /** Public view of a ticket with its gate check-in status. */
   public record TicketDto(Long id, String code, String eventTitle, String tierName,
                           String venue, String city, String startsAt, String status) {
     static TicketDto of(Ticket t) {
@@ -52,11 +53,16 @@ public class TicketService {
     return issued;
   }
 
+  /** Lists the ticket holder's tickets, newest first. */
   public List<TicketDto> myTickets(String email) {
     User u = userDetails.loadDomainUser(email);
     return tickets.findByHolderIdOrderByCreatedAtDesc(u.getId()).stream().map(TicketDto::of).toList();
   }
 
+  /**
+   * Renders the ticket's check-in code as a PNG QR for the wallet. The
+   * holder or an admin may download it; anyone else gets a forbidden error.
+   */
   public byte[] qrPng(String email, Long ticketId) {
     User u = userDetails.loadDomainUser(email);
     Ticket t = tickets.findById(ticketId).orElseThrow(() -> ApiException.notFound("Ticket not found"));
@@ -65,6 +71,7 @@ public class TicketService {
     return qr.png("TICKETSEWA:" + t.getCode());
   }
 
+  /** The outcome shown on a gate device for one scanned ticket. */
   public record CheckinResult(String code, String eventTitle, String tierName,
                               String holderName, String status, String message) {}
 

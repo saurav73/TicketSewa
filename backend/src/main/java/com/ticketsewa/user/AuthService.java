@@ -19,15 +19,25 @@ public class AuthService {
     this.jwt = jwt;
   }
 
+  /**
+   * Sign-up payload. The password is hashed before storage, emails are
+   * stored lowercased, and self-registering as admin is rejected.
+   */
   public record RegisterRequest(
       @NotBlank String name,
       @Email @NotBlank String email,
       @Size(min = 6, message = "password must be at least 6 characters") String password,
       Role role) {}
 
+  /** Sign-in payload (email lookup is case-insensitive). */
   public record LoginRequest(@Email @NotBlank String email, @NotBlank String password) {}
+  /** Sign-up / sign-in result: a JWT plus the user's profile. */
   public record AuthResponse(String token, String name, String email, String role) {}
 
+  /**
+   * Creates an account and returns a JWT. Duplicate emails are rejected;
+   * a missing role defaults to ATTENDEE.
+   */
   @Transactional
   public AuthResponse register(RegisterRequest req) {
     String email = req.email().trim().toLowerCase();
@@ -41,6 +51,11 @@ public class AuthService {
     return new AuthResponse(jwt.generate(u.getEmail(), u.getRole().name()), u.getName(), u.getEmail(), u.getRole().name());
   }
 
+  /**
+   * Authenticates with email + password and returns a fresh JWT. Failed
+   * logins report "invalid email or password" without revealing which
+   * part was wrong.
+   */
   public AuthResponse login(LoginRequest req) {
     String email = req.email().trim().toLowerCase();
     User u = users.findByEmail(email).orElseThrow(() -> ApiException.unauthorized("Invalid email or password"));

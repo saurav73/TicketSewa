@@ -52,8 +52,13 @@ public class OrderService {
     this.txManager = txManager;
   }
 
+  /**
+   * Request body for creating an order. The idempotency key makes retried
+   * requests return the original order instead of reserving seats twice.
+   */
   public record CreateOrderRequest(@NotNull Long eventId, @NotNull Long tierId,
                                    @Min(1) @Max(10) int quantity, String idempotencyKey) {}
+  /** Public view of an order, safe to expose to the buying user. */
   public record OrderDto(String id, Long eventId, String eventTitle, Long tierId, String tierName,
                          int quantity, int amountNpr, String status, Instant createdAt) {
     static OrderDto of(PurchaseOrder o) {
@@ -62,6 +67,7 @@ public class OrderService {
           o.getAmountNpr(), o.getStatus().name(), o.getCreatedAt());
     }
   }
+  /** The eSewa redirect parameters a buyer lands back with after paying. */
   public record VerifyRequest(@NotBlank String oid, @NotBlank String amt, @NotBlank String refId) {}
 
   /**
@@ -109,6 +115,10 @@ public class OrderService {
     }
   }
 
+  /**
+   * Builds the eSewa payment form for a pending order. Only the owning buyer
+   * may start payment; non-pending orders are rejected.
+   */
   public Map<String, Object> paymentForm(String email, String orderId) {
     PurchaseOrder o = getOwnedOrder(email, orderId);
     if (o.getStatus() != OrderStatus.PENDING) throw ApiException.badRequest("Order is not payable");
@@ -198,11 +208,16 @@ public class OrderService {
     }
   }
 
+  /** Lists the buyer's orders, newest first. */
   public List<OrderDto> myOrders(String email) {
     User u = userDetails.loadDomainUser(email);
     return orders.findByUserIdOrderByCreatedAtDesc(u.getId()).stream().map(OrderDto::of).toList();
   }
 
+  /**
+   * Returns one of the buyer's orders. Other buyers' orders (and missing
+   * ones) all look like "not found" so order ownership never leaks.
+   */
   public OrderDto get(String email, String orderId) {
     return OrderDto.of(getOwnedOrder(email, orderId));
   }

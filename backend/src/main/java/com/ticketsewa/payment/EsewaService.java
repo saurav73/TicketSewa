@@ -44,6 +44,7 @@ public class EsewaService {
     );
   }
 
+  /** Returns the configured eSewa payment endpoint (UAT sandbox in demo mode). */
   public String paymentUrl() {
     return props.getPaymentUrl();
   }
