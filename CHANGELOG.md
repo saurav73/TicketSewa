@@ -2,6 +2,16 @@
 
 All notable changes to this project, newest first.
 
+## Unreleased
+
+- README: documented the `PORT` and `DB_DRIVER` backend env vars and added
+  Postgres / H2 to the tech line; added `frontend/.env.example` for
+  `VITE_API_URL` and `VITE_DEMO_MODE`.
+
+## 2026-10-09
+
+- README: documented frontend env vars `VITE_API_URL` and `VITE_DEMO_MODE`.
+
 ## 2026-09-29
 
 - **Rich frontend:** cinematic hero banners, 6 fully detailed demo events,
