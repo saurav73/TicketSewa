@@ -6,6 +6,11 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.Instant;
 
+/**
+ * A platform account. Email is the login identifier (unique) and the password
+ * is stored only as a hash. The {@link Role} drives RBAC: attendees buy
+ * tickets, organizers manage their own events, admins manage everything.
+ */
 @Entity
 @Table(name = "users")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
