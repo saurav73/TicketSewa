@@ -13,6 +13,11 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
+/**
+ * Stateless JWT authentication filter. On each request it extracts the Bearer
+ * token, validates it, and installs the authenticated principal into the
+ * security context so downstream endpoints see a logged-in user.
+ */
 @Component
 public class JwtAuthFilter extends OncePerRequestFilter {
   private final JwtService jwt;

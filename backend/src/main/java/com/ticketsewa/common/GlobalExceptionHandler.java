@@ -6,6 +6,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+/**
+ * Turns internal failures into clean API error responses. Domain problems
+ * ({@code ApiException}) keep their status code, and bean-validation failures
+ * surface the first field error as a 400.
+ */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
