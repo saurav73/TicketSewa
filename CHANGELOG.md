@@ -4,6 +4,12 @@ All notable changes to this project, newest first.
 
 ## Unreleased
 
+- Docs: added class-level Javadoc across the backend — event domain
+  (`Event`, `EventStatus`, `EventRepository`), `CheckoutController`,
+  `AuthController` + `Role`, `JwtAuthFilter`, `GlobalExceptionHandler`,
+  `TicketSewaApplication`, and `TicketStatus`.
+- Added `backend/.env.example` documenting all backend env vars (mirrors the
+  existing `frontend/.env.example`).
 - README: documented the `PORT` and `DB_DRIVER` backend env vars and added
   Postgres / H2 to the tech line; added `frontend/.env.example` for
   `VITE_API_URL` and `VITE_DEMO_MODE`.
