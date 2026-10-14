@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Order-facing REST endpoints under {@code /api/orders}. Every call is scoped
+ * to the authenticated buyer, so callers can only ever see and pay for their
+ * own orders.
+ */
 @RestController
 @RequestMapping("/api/orders")
 public class CheckoutController {
