@@ -8,6 +8,11 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.Instant;
 import java.time.LocalDateTime;
 
+/**
+ * An event published by an organizer. Events start as {@link EventStatus#DRAFT}
+ * and only become bookable once published; cancelling marks them
+ * {@link EventStatus#CANCELLED}. Tied to its organizer and its ticket tiers.
+ */
 @Entity
 @Table(name = "events")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
