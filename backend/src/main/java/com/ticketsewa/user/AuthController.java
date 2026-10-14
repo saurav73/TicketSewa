@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+/**
+ * Public auth endpoints under {@code /api/auth}: registration and login are
+ * open, while {@code /me} requires a valid JWT and echoes back the caller's
+ * profile from the security context.
+ */
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
