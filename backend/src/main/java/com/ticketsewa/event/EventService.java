@@ -14,6 +14,11 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
+/**
+ * Organizer-side event management: creating events with ticket tiers and
+ * cancelling them (which releases all held seats). Broadcasts tier inventory
+ * changes so the SSE seat stream stays live.
+ */
 public class EventService {
   private final EventRepository events;
   private final TicketTierRepository tiers;

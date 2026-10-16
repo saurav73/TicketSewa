@@ -15,6 +15,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+/**
+ * Event-facing endpoints: public event browse + detail, the live SSE seat
+ * stream, and organizer event management (create, cancel). Write routes are
+ * restricted to the event's organizer (or admin) via RBAC + ownership checks.
+ */
 public class EventController {
   private final EventService service;
 

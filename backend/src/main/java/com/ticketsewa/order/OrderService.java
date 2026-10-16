@@ -25,6 +25,12 @@ import java.util.Map;
 import java.util.UUID;
 
 @Service
+/**
+ * Order lifecycle: idempotent order creation (client-supplied idempotency key)
+ * with a 30-minute seat reservation, eSewa payment verification guarded by a
+ * pessimistic order lock so duplicate callbacks can't double-issue tickets,
+ * and a {@code @Scheduled} job that releases seats on unpaid orders every minute.
+ */
 public class OrderService {
   private static final Logger log = LoggerFactory.getLogger(OrderService.class);
   private static final long RESERVATION_MINUTES = 30;

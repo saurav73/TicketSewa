@@ -13,6 +13,13 @@ import java.util.UUID;
 @Entity
 @Table(name = "purchase_orders")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
+/**
+ * One buyer checkout attempt. Seats are reserved at creation (30-minute
+ * window, conditional atomic update so overselling is impossible); payment
+ * verification under a pessimistic lock moves it {@code RESERVED -> PAID}
+ * exactly once, triggering ticket issuance, while failure/expiry releases
+ * the seats.
+ */
 public class PurchaseOrder {
   /**
    * UUID string. Doubles as eSewa's {@code pid} (product identity code),

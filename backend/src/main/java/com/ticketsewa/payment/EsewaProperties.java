@@ -8,6 +8,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConfigurationProperties(prefix = "esewa")
 @Getter @Setter
+/**
+ * Binds the {@code esewa.*} properties (demo mode, merchant code, payment and
+ * transrec verification URLs, success/failure redirect URLs) into one bean.
+ */
 public class EsewaProperties {
   /** Merchant code (scd). EPAYTEST works on UAT. */
   private String merchantCode;

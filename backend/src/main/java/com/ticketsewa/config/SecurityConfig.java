@@ -21,6 +21,12 @@ import java.util.List;
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
+/**
+ * Stateless JWT security: the JWT filter runs before Spring's auth filter,
+ * method-level RBAC ({@code @PreAuthorize}) enforces ORGANIZER/ADMIN roles,
+ * CORS is restricted to the SPA origin, and all endpoints are permit-by-default
+ * only for the public browse, health and demo-probe paths.
+ */
 public class SecurityConfig {
   @Value("${app.frontend-url}")
   private String frontendUrl;
