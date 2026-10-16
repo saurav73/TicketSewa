@@ -2,6 +2,16 @@
 
 All notable changes to this project, newest first.
 
+## 2026-10-16
+
+- Docs: added class-level Javadoc across the backend — ticket domain
+  (`Ticket`, `TicketService`, `TicketController`), order domain
+  (`PurchaseOrder`, `OrderService`), event (`EventController`,
+  `EventService`), plus `SecurityConfig` and `EsewaProperties`.
+- README: documented `POST /api/payments/failed` and
+  `GET /api/payments/demo/enabled` in the API table (existing endpoints,
+  previously missing).
+
 ## Unreleased
 
 - Docs: added class-level Javadoc across the backend — event domain
