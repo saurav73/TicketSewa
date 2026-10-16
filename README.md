@@ -98,6 +98,8 @@ type a ticket code → `ADMITTED`. Scan it again → `ALREADY_USED`.
 | `POST /api/orders` | user | Create order, reserve seats (idempotency key) |
 | `POST /api/orders/{id}/payment-form` | owner | eSewa form fields |
 | `POST /api/payments/verify` | owner | Verify eSewa callback, issue tickets |
+| `POST /api/payments/failed` | owner | Buyer bailed at eSewa: release the held seats |
+| `GET /api/payments/demo/enabled` | – | Whether demo-mode one-click payment is on |
 | `POST /api/payments/demo/pay` | owner | Demo-mode payment |
 | `GET /api/tickets/mine` · `GET /api/tickets/{id}/qr` | owner | Tickets + QR PNG |
 | `POST /api/checkin` | organizer of event | Atomic gate check-in |
