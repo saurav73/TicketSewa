@@ -13,6 +13,12 @@ import java.time.Instant;
 @Entity
 @Table(name = "tickets")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
+/**
+ * A single issued ticket. One per seat: issued by {@code TicketService} only
+ * after an order reaches {@code PAID}, and the check-in lookup key is the
+ * unique public {@code code} printed as a QR. The {@code VALID -> USED}
+ * status transition at the gate is atomic, so a ticket can never scan twice.
+ */
 public class Ticket {
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;

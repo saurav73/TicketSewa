@@ -14,6 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+/**
+ * Ticket lifecycle: issues one ticket per paid seat, serves the wallet views,
+ * and runs the atomic gate check-in. Check-in flips the ticket
+ * {@code VALID -> USED} in a single conditional update; two gates scanning the
+ * same QR at once produce exactly one {@code ADMITTED}.
+ */
 public class TicketService {
   private static final Logger log = LoggerFactory.getLogger(TicketService.class);
   private static final SecureRandom RANDOM = new SecureRandom();

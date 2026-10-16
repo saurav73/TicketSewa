@@ -10,6 +10,10 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
+/**
+ * Ticket-facing endpoints: the buyer's wallet and QR PNGs, plus the gate
+ * check-in used by organizers. All routes are owner-scoped by JWT.
+ */
 public class TicketController {
   private final TicketService tickets;
 
