@@ -1,3 +1,9 @@
+/**
+ * App.jsx — root component and route table for the TicketSewa SPA.
+ * Declares the BrowserRouter routes (browse, event, checkout, tickets,
+ * organizer) and wraps everything in AuthProvider; the navbar and outlet
+ * render here.
+ */
 import { BrowserRouter, Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
 import { AuthProvider, useAuth } from './auth';
 import Home from './pages/Home';

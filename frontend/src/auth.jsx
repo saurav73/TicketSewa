@@ -1,3 +1,9 @@
+/**
+ * auth.jsx — JWT auth state for the frontend.
+ * AuthProvider loads the token from localStorage on boot, exposes
+ * useAuth() (user, login, logout, loading) to the route tree; the JWT is
+ * attached to API calls by api.js.
+ */
 import { createContext, useContext, useEffect, useState } from 'react';
 import { api } from './api';
 
