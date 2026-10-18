@@ -2,6 +2,13 @@
 
 All notable changes to this project, newest first.
 
+## 2026-10-18
+
+- Docs: class-level Javadoc on `PurchaseOrderRepository` (idempotency-key
+  lookup + pessimistic payment-verification lock); file-header JSDoc on the
+  frontend entry files `App.jsx` (route table) and `auth.jsx` (JWT auth
+  context).
+
 ## 2026-10-16
 
 - Docs: added class-level Javadoc across the backend — ticket domain
