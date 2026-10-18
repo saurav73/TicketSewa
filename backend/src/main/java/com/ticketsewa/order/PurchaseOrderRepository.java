@@ -8,6 +8,11 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Orders by id, with an idempotency-key lookup for safe client retries and a
+ * pessimistic write lock for payment verification, so duplicate eSewa
+ * callbacks cannot pay the same order twice.
+ */
 public interface PurchaseOrderRepository extends JpaRepository<PurchaseOrder, String> {
   Optional<PurchaseOrder> findByIdempotencyKey(String idempotencyKey);
   List<PurchaseOrder> findByUserIdOrderByCreatedAtDesc(Long userId);
