@@ -2,6 +2,12 @@
 
 All notable changes to this project, newest first.
 
+## 2026-10-19
+
+- README: added the three existing endpoints missing from the API table —
+  `POST /api/organizer/events/{id}/cancel` (ORGANIZER+), `GET /api/orders/mine`
+  (own orders), and `GET /api/auth/me` (current user profile).
+
 ## 2026-10-18
 
 - Docs: class-level Javadoc on `PurchaseOrderRepository` (idempotency-key
