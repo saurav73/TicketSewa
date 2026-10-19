@@ -91,11 +91,14 @@ type a ticket code → `ADMITTED`. Scan it again → `ALREADY_USED`.
 | Method & path | Auth | What it does |
 |---|---|---|
 | `POST /api/auth/register` · `POST /api/auth/login` | – | JWT auth |
+| `GET /api/auth/me` | user | Current user profile (name, email, role) |
 | `GET /api/events` · `GET /api/events/{id}` | – | Published events |
 | `GET /api/events/{id}/seats/stream` | – | SSE live seat counts |
 | `POST /api/organizer/events` | ORGANIZER+ | Create event + tiers |
 | `GET /api/organizer/events` | ORGANIZER+ | Own events + sales |
+| `POST /api/organizer/events/{id}/cancel` | ORGANIZER+ | Cancel an event |
 | `POST /api/orders` | user | Create order, reserve seats (idempotency key) |
+| `GET /api/orders/mine` | user | Own orders |
 | `POST /api/orders/{id}/payment-form` | owner | eSewa form fields |
 | `POST /api/payments/verify` | owner | Verify eSewa callback, issue tickets |
 | `POST /api/payments/failed` | owner | Buyer bailed at eSewa: release the held seats |
