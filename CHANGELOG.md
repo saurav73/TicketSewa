@@ -2,6 +2,15 @@
 
 All notable changes to this project, newest first.
 
+## 2026-10-20
+
+- README: added the two remaining undocumented endpoints to the API table —
+  `GET /api/orders/{id}` (single order detail) and `GET /api/health`
+  (liveness probe for cloud health checks).
+- Config docs: `application.yml` now warns above `app.jwt.secret` that the
+  bundled default JWT secret is dev-only and must be replaced with a long
+  random `JWT_SECRET` in every deployed environment.
+
 ## 2026-10-19
 
 - README: added the three existing endpoints missing from the API table —
