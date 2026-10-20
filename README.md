@@ -99,6 +99,8 @@ type a ticket code → `ADMITTED`. Scan it again → `ALREADY_USED`.
 | `POST /api/organizer/events/{id}/cancel` | ORGANIZER+ | Cancel an event |
 | `POST /api/orders` | user | Create order, reserve seats (idempotency key) |
 | `GET /api/orders/mine` | user | Own orders |
+| `GET /api/orders/{id}` | owner | Single order detail |
+| `GET /api/health` | – | Liveness probe for cloud health checks |
 | `POST /api/orders/{id}/payment-form` | owner | eSewa form fields |
 | `POST /api/payments/verify` | owner | Verify eSewa callback, issue tickets |
 | `POST /api/payments/failed` | owner | Buyer bailed at eSewa: release the held seats |

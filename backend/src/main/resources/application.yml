@@ -20,6 +20,8 @@ spring:
 
 app:
   jwt:
+    # Dev-only fallback. Set JWT_SECRET to a long random value in every
+    # deployed environment — anyone with the default secret can forge tokens.
     secret: ${JWT_SECRET:ticketsewa-dev-secret-must-be-at-least-32-chars-long}
     expiry-hours: 24
   seed-demo: ${SEED_DEMO:true}
