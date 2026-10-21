@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+/**
+ * REST endpoints under {@code /api/payments} for the eSewa payment flow:
+ * server-side verification of the eSewa success redirect, failure
+ * reporting, and the demo-mode flag/pay path used for local testing.
+ */
 @RestController
 @RequestMapping("/api/payments")
 public class PaymentController {

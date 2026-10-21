@@ -7,6 +7,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * Sign-up, login and current-user profile logic. Handles password hashing,
+ * email normalization, self-admin-registration rejection, and JWT issuance
+ * for authenticated sessions.
+ */
 @Service
 public class AuthService {
   private final UserRepository users;

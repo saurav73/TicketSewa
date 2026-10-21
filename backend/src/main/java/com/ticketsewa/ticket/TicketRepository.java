@@ -6,6 +6,11 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Spring Data repository for {@link Ticket}. Serves holder ticket lists,
+ * order ticket lookup, QR-code lookup, and the atomic check-in update used
+ * by gate scanning to prevent double admission.
+ */
 public interface TicketRepository extends JpaRepository<Ticket, Long> {
   List<Ticket> findByHolderIdOrderByCreatedAtDesc(Long holderId);
   List<Ticket> findByOrderId(String orderId);

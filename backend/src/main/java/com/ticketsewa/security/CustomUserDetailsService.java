@@ -8,6 +8,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Spring Security {@link UserDetailsService} backed by the app's user table.
+ * Bridges the {@link User} entity into the security pipeline: loads accounts
+ * by email and maps the app role onto a granted authority
+ * (e.g. {@code ROLE_ORGANIZER}).
+ */
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
   private final UserRepository users;

@@ -10,6 +10,11 @@ import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.util.Date;
 
+/**
+ * Signs and validates JWTs (HMAC with the {@code app.jwt.secret} key,
+ * configurable expiry in hours). Single source of token minting and
+ * parsing for the JWT authentication filter.
+ */
 @Service
 public class JwtService {
   private final SecretKey key;

@@ -7,6 +7,10 @@ import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayOutputStream;
 
+/**
+ * Renders ticket check-in codes as QR images via ZXing. Each ticket's unique
+ * code becomes a scannable PNG consumed by the gate check-in flow.
+ */
 @Service
 public class QrCodeService {
   /**

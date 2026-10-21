@@ -5,6 +5,11 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
+/**
+ * Spring Data repository for {@link TicketTier}. Provides per-event tier
+ * lookup plus the atomic seat reservation and release operations that keep
+ * inventory consistent under concurrent checkouts.
+ */
 public interface TicketTierRepository extends JpaRepository<TicketTier, Long> {
   List<TicketTier> findByEventIdOrderByPriceNprAsc(Long eventId);
 
