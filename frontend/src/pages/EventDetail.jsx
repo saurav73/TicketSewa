@@ -1,3 +1,7 @@
+/**
+ * Event detail page: tier selection with live seat counts (SSE), order
+ * creation, and related-event cards.
+ */
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { api, sseSubscribe, fmtNpr } from '../api';

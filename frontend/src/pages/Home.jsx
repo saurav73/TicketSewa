@@ -1,3 +1,7 @@
+/**
+ * Landing page: hero, event search by category, how-it-works steps, and
+ * testimonial quotes.
+ */
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { api, fmtNpr } from '../api';

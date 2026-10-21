@@ -1,3 +1,7 @@
+/**
+ * Organizer dashboard: event creation and publishing, per-event sales
+ * stats, and the manual QR check-in box for gate scanning.
+ */
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api, fmtNpr, fmtDate } from '../api';

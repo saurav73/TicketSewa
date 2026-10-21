@@ -1,3 +1,6 @@
+/**
+ * React entry point: mounts the app inside StrictMode on the #root element.
+ */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';

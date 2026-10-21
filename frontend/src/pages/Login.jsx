@@ -1,3 +1,7 @@
+/**
+ * Login page: email/password sign-in via the auth context, redirects home
+ * on success.
+ */
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../auth';

@@ -1,3 +1,7 @@
+/**
+ * Sign-up page: name, email, password and role registration via the auth
+ * context; self-admin-registration is rejected by the backend.
+ */
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../auth';

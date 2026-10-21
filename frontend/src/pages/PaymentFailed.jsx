@@ -1,3 +1,7 @@
+/**
+ * Payment-failed landing: receives the eSewa failure/cancel redirect,
+ * releases the held seats, and shows the failure state.
+ */
 import { useEffect, useState } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { api } from '../api';

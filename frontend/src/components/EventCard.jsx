@@ -1,3 +1,8 @@
+/**
+ * Event card component: date badge, location/time icons, and deterministic
+ * gradient artwork for event listings. Also exports the dateBadge and icon
+ * helpers reused by the page components.
+ */
 import { Link } from 'react-router-dom';
 import { fmtNpr } from '../api';
 import { gradFor } from '../art';

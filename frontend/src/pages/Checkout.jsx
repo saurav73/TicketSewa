@@ -1,3 +1,7 @@
+/**
+ * Checkout page: eSewa payment flow for a pending order (seats held for
+ * 30 minutes), plus one-click demo pay when running in demo mode.
+ */
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { api, DEMO_MODE, fmtNpr } from '../api';

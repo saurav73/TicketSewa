@@ -1,3 +1,9 @@
+/**
+ * Backend API client: thin fetch wrapper over /api with JWT auth headers,
+ * NPR/date formatters, and SSE subscription for live seat counts.
+ * Routes requests to demoApi in demo mode (Vercel static build without a
+ * Java backend configured). Set VITE_API_URL to point at a real backend.
+ */
 import { demoApi } from './demoApi';
 
 // Auto demo-mode: when no API URL is configured (e.g. the static Vercel build),

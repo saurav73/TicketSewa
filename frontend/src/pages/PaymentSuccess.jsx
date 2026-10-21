@@ -1,3 +1,8 @@
+/**
+ * Payment-success landing: receives the eSewa success redirect
+ * (?oid=&amt=&refId=) and runs server-side verification before showing
+ * the issued tickets.
+ */
 import { useEffect, useState } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { api } from '../api';

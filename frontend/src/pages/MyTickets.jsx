@@ -1,3 +1,7 @@
+/**
+ * My tickets page: lists the signed-in user's tickets with scannable QR
+ * codes for gate check-in.
+ */
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { api, DEMO_MODE, apiBase, fmtDate } from '../api';
