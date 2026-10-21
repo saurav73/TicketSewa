@@ -2,6 +2,17 @@
 
 All notable changes to this project, newest first.
 
+## 2026-10-21
+
+- Docs: class-level Javadoc on the remaining undocumented backend classes —
+  `TicketTierRepository`, `TicketRepository`, `OrderStatus`,
+  `PaymentController`, `CustomUserDetailsService`, `JwtService`,
+  `QrCodeService`, `AuthService` (every main-source class now documented).
+- Docs: file-header JSDoc on all remaining frontend files — `api.js`,
+  `main.jsx`, `components/EventCard.jsx`, and the pages
+  (Home, EventDetail, Checkout, Login, Register, MyTickets, Organizer,
+  PaymentSuccess, PaymentFailed).
+
 ## 2026-10-20
 
 - README: added the two remaining undocumented endpoints to the API table —
