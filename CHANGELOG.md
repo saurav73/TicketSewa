@@ -2,6 +2,10 @@
 
 All notable changes to this project, newest first.
 
+## 2026-10-22
+- Removed the unused `org.springframework.data.repository.query.Param` import from `EventRepository`
+- Re-verified the README API table and quick-start against the backend mappings and docker-compose.yml: all 19 routes documented, ports (8080/3000) still accurate; no doc changes needed
+
 ## 2026-10-21
 
 - Docs: class-level Javadoc on the remaining undocumented backend classes —
