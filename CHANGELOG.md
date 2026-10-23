@@ -2,6 +2,12 @@
 
 All notable changes to this project, newest first.
 
+## 2026-10-23
+- Re-verified the README API overview against the backend: all 21 mapped routes are documented across the 19 table rows (3 rows cover two routes each), ports (8080/3000), ports for docker and vite (5173) accurate, and every `${ENV}` var in `application.yml` is listed in the configuration section — docs accurate, no changes needed
+
+
+All notable changes to this project, newest first.
+
 ## 2026-10-22
 - Removed the unused `org.springframework.data.repository.query.Param` import from `EventRepository`
 - Re-verified the README API table and quick-start against the backend mappings and docker-compose.yml: all 19 routes documented, ports (8080/3000) still accurate; no doc changes needed
