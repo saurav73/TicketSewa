@@ -57,6 +57,16 @@ docker compose up --build
 # frontend → http://localhost:3000 · API → http://localhost:8080
 ```
 
+**Deploying the API to Hugging Face Spaces**
+
+The root `Dockerfile` is built for HF Spaces (Docker SDK): it packages
+`backend/` into a jar and runs it on the Space's `PORT` (7860), which the
+app already reads from the `PORT` env var. Push the repo to a new Space,
+set the secrets from the [Configuration](#configuration) section
+(`DB_URL`, `DB_USER`, `DB_PASS`, `JWT_SECRET`, eSewa keys), and the API
+goes live on the Space URL. Pair it with the frontend by pointing
+`VITE_API_URL` at the Space.
+
 **Option B — local**
 ```bash
 # 1. MySQL 8 running locally with a `ticketsewa` database
