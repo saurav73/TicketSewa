@@ -67,6 +67,13 @@ set the secrets from the [Configuration](#configuration) section
 goes live on the Space URL. Pair it with the frontend by pointing
 `VITE_API_URL` at the Space.
 
+**Deploying the frontend**
+
+The frontend ships with a `vercel.json` (Vite preset: `npm run build` →
+`dist`), so it can also be deployed as a static site on Vercel or any static
+host. Point `VITE_API_URL` at the API (e.g. the Hugging Face Space URL above);
+the compose setup already builds the same frontend from its `Dockerfile`.
+
 **Option B — local**
 ```bash
 # 1. MySQL 8 running locally with a `ticketsewa` database
