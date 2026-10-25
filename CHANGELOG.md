@@ -2,6 +2,10 @@
 
 All notable changes to this project, newest first.
 
+## 2026-10-25
+- README: documented the frontend static-hosting path (`frontend/vercel.json`, Vite preset, build to `dist`) alongside the existing Docker and Hugging Face Spaces API deploys
+- Re-verified the Configuration section against `application.yml`: every documented env var (`PORT`, `DB_*`, `JWT_SECRET`, `FRONTEND_URL`, `ESEWA_*`, `SEED_DEMO`) is actually read by the backend — docs accurate
+
 ## 2026-10-24
 - README: documented the Hugging Face Spaces deployment path (root `Dockerfile` was already HF-ready on port 7860 via `PORT`, but the README never mentioned it)
 - Re-verified the deployment claims: `docker-compose.yml` ports (frontend 3000, API 8080, MySQL 3306) match the quickstart; `frontend/src/api.js` reads `VITE_API_URL`/`VITE_DEMO_MODE` exactly as the Configuration section describes; the three concurrency tests (`InventoryRaceTest`, `IdempotentVerificationTest`, `DoubleCheckinTest`) exist; `SEED_DEMO` is wired in `application.yml`; no `console.log` leftovers in the frontend — docs accurate
