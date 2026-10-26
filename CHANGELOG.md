@@ -2,6 +2,10 @@
 
 All notable changes to this project, newest first.
 
+## 2026-10-26
+- README: pinned the Tech line to Spring Boot 3.2.5, matching the `spring-boot-starter-parent` version in `backend/pom.xml`
+- Re-verified the quickstart against `docker-compose.yml`: frontend on 3000, API on 8080, and `frontend/.env.example` exists as the Configuration section references it
+
 ## 2026-10-25
 - README: documented the frontend static-hosting path (`frontend/vercel.json`, Vite preset, build to `dist`) alongside the existing Docker and Hugging Face Spaces API deploys
 - Re-verified the Configuration section against `application.yml`: every documented env var (`PORT`, `DB_*`, `JWT_SECRET`, `FRONTEND_URL`, `ESEWA_*`, `SEED_DEMO`) is actually read by the backend — docs accurate
