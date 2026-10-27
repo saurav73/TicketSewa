@@ -152,5 +152,5 @@ demo mode even when `VITE_API_URL` is set).
 ## Tech
 
 Java 17 · Spring Boot 3.2.5 (Web, Data JPA, Security, Validation) · MySQL 8
-(Postgres supported) · jjwt · ZXing · H2 (tests) · React 18 + Vite + React
-Router · Docker Compose
+(Postgres supported) · jjwt · ZXing · H2 (tests) · React 18.3 + Vite 5 +
+React Router 6 · Docker Compose
