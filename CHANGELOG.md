@@ -2,6 +2,9 @@
 
 All notable changes to this project, newest first.
 
+## 2026-10-27
+- README: pinned the frontend stack in Tech to React 18.3 + Vite 5 + React Router 6, matching frontend/package.json
+
 ## 2026-10-26
 - README: pinned the Tech line to Spring Boot 3.2.5, matching the `spring-boot-starter-parent` version in `backend/pom.xml`
 - Re-verified the quickstart against `docker-compose.yml`: frontend on 3000, API on 8080, and `frontend/.env.example` exists as the Configuration section references it
