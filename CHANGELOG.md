@@ -2,6 +2,11 @@
 
 All notable changes to this project, newest first.
 
+
+## 2026-10-28
+- README: reservation expiry documented precisely - the scheduled job runs every minute and releases seats on orders unpaid after the 30-minute hold (`OrderService.RESERVATION_MINUTES = 30`)
+- Re-verified the demo flow against `DemoSeeder`: organizer/fan/admin demo accounts and the General tier on Himalayan Beats are as documented
+
 ## 2026-10-27
 - README: pinned the frontend stack in Tech to React 18.3 + Vite 5 + React Router 6, matching frontend/package.json
 
