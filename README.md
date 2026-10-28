@@ -18,7 +18,7 @@ the things that break in production:
 | QR tickets + atomic `VALID → USED` check-in | Exactly-once semantics at the gate |
 | JWT auth with `ATTENDEE / ORGANIZER / ADMIN` roles + ownership checks | RBAC done properly |
 | Live seat availability over Server-Sent Events | Real-time UI |
-| Stale-reservation expiry (scheduled job releases unpaid seats) | Operational thinking |
+| Stale-reservation expiry (scheduled job runs every minute, releasing seats on orders unpaid after the 30-minute hold) | Operational thinking |
 | Concurrent integration tests (H2) for the race, the double callback, the double scan | Testing the scary paths, not the happy path |
 
 ## Architecture
