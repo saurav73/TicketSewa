@@ -141,7 +141,7 @@ cd backend && mvn test
 All via environment variables (see `backend/src/main/resources/application.yml`):
 `PORT` (default `8080`), `DB_URL`, `DB_USER`, `DB_PASS`, `DB_DRIVER` (JDBC
 driver class, default `com.mysql.cj.jdbc.Driver` — set to
-`org.postgresql.Driver` for Postgres), `JWT_SECRET`, `FRONTEND_URL`, `ESEWA_MERCHANT`,
+`org.postgresql.Driver` for Postgres), `JWT_SECRET`, `FRONTEND_URL` (default `http://localhost:5173` for local dev; Docker Compose sets `http://localhost:3000`), `ESEWA_MERCHANT`,
 `ESEWA_PAYMENT_URL`, `ESEWA_VERIFICATION_URL`, `ESEWA_SUCCESS_URL`,
 `ESEWA_FAILURE_URL`, `ESEWA_DEMO_MODE`, `SEED_DEMO`.
 
