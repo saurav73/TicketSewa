@@ -3,6 +3,10 @@
 All notable changes to this project, newest first.
 
 
+## 2026-10-30
+- README: Quickstart now documents the Compose services (MySQL 8.0 on 3306 with a healthcheck, API on 8080, frontend on 3000 via container port 80)
+- Re-verified against docker-compose.yml: backend waits on the healthy database, demo mode is on by default in Compose
+
 ## 2026-10-29
 - README: FRONTEND_URL default documented - http://localhost:5173 for local dev, http://localhost:3000 under Docker Compose (application.yml default + compose file)
 - Re-verified the demo flow against `DemoSeeder`: organizer/fan/admin demo accounts and the Himalayan Beats event are as documented
