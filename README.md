@@ -57,6 +57,10 @@ docker compose up --build
 # frontend → http://localhost:3000 · API → http://localhost:8080
 ```
 
+Compose brings up three services: MySQL 8.0 on `3306` (with a healthcheck — the
+backend waits until the database is healthy), the API on `8080`, and the
+frontend served on `3000` (container port 80).
+
 **Deploying the API to Hugging Face Spaces**
 
 The root `Dockerfile` is built for HF Spaces (Docker SDK): it packages
