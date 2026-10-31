@@ -3,6 +3,10 @@
 All notable changes to this project, newest first.
 
 
+## 2026-10-31
+- README: new Code map section lists the 6 backend controllers and 9 frontend pages, counted from the sources
+- Re-verified against docker-compose.yml: backend waits on the healthy database, demo mode is on by default in Compose
+
 ## 2026-10-30
 - README: Quickstart now documents the Compose services (MySQL 8.0 on 3306 with a healthcheck, API on 8080, frontend on 3000 via container port 80)
 - Re-verified against docker-compose.yml: backend waits on the healthy database, demo mode is on by default in Compose
