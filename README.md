@@ -130,6 +130,11 @@ type a ticket code → `ADMITTED`. Scan it again → `ALREADY_USED`.
 | `GET /api/tickets/mine` · `GET /api/tickets/{id}/qr` | owner | Tickets + QR PNG |
 | `POST /api/checkin` | organizer of event | Atomic gate check-in |
 
+## Code map
+
+- **Backend controllers (6):** `AuthController`, `EventController`, `CheckoutController`, `PaymentController`, `TicketController`, `HealthController` — counted from `backend/src/main/java/com/ticketsewa/`.
+- **Frontend pages (9):** Home, EventDetail, Checkout, Login, Register, MyTickets, Organizer, PaymentSuccess, PaymentFailed — counted from `frontend/src/pages/`.
+
 ## Tests
 
 ```bash
