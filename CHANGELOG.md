@@ -3,6 +3,10 @@
 All notable changes to this project, newest first.
 
 
+## 2026-11-01
+- README: code map now lists the 8 backend packages and the frontend support modules (api.js, auth.jsx, demoApi.js, art.js, EventCard.jsx), counted from the sources
+- Re-verified: all 6 controller files still present (Auth, Event, Checkout, Payment, Ticket, Health)
+
 ## 2026-10-31
 - README: new Code map section lists the 6 backend controllers and 9 frontend pages, counted from the sources
 - Re-verified against docker-compose.yml: backend waits on the healthy database, demo mode is on by default in Compose
