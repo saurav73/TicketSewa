@@ -3,6 +3,10 @@
 All notable changes to this project, newest first.
 
 
+## 2026-11-02
+- README: code map now states the backend Java file total (39: 36 main sources + 3 integration tests), counted from backend/
+- Re-verified: all 6 controller files still present (Auth, Event, Checkout, Payment, Ticket, Health)
+
 ## 2026-11-01
 - README: code map now lists the 8 backend packages and the frontend support modules (api.js, auth.jsx, demoApi.js, art.js, EventCard.jsx), counted from the sources
 - Re-verified: all 6 controller files still present (Auth, Event, Checkout, Payment, Ticket, Health)
