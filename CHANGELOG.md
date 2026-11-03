@@ -3,6 +3,10 @@
 All notable changes to this project, newest first.
 
 
+## 2026-11-03
+- README: code map now states the frontend source total (17 files: 9 pages + App/main/index.css + 4 support modules + EventCard), counted from frontend/src/
+- Re-verified: all 6 controller files still present (Auth, Event, Checkout, Payment, Ticket, Health)
+
 ## 2026-11-02
 - README: code map now states the backend Java file total (39: 36 main sources + 3 integration tests), counted from backend/
 - Re-verified: all 6 controller files still present (Auth, Event, Checkout, Payment, Ticket, Health)
