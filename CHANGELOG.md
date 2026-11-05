@@ -4,6 +4,10 @@ All notable changes to this project, newest first.
 
 
 
+## 2026-11-05
+- README: code map now states the backend files per package (event 8, ticket 6, user 5, order 5, common 3, payment 3, security 3, config 2, plus the application class = 36 main sources), counted from `backend/src/`
+- Re-verified: all 6 controller files still present (Auth, Event, Checkout, Payment, Ticket, Health)
+
 ## 2026-11-04
 - README: code map now states the 21 backend handler mappings (11 GET + 10 POST) across the 6 controllers, counted from `backend/src/`
 - Re-verified: all 6 controller files still present (Auth, Event, Checkout, Payment, Ticket, Health)
