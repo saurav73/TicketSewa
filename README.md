@@ -135,6 +135,7 @@ type a ticket code → `ADMITTED`. Scan it again → `ALREADY_USED`.
 - **Backend controllers (6):** `AuthController`, `EventController`, `CheckoutController`, `PaymentController`, `TicketController`, `HealthController` — counted from `backend/src/main/java/com/ticketsewa/`.
 - **Frontend pages (9):** Home, EventDetail, Checkout, Login, Register, MyTickets, Organizer, PaymentSuccess, PaymentFailed — counted from `frontend/src/pages/`.
 - **Backend packages (8):** `common`, `config`, `event`, `order`, `payment`, `security`, `ticket`, `user` — counted from `backend/src/main/java/com/ticketsewa/`.
+- **Backend files per package (36 main sources):** `event` 8, `ticket` 6, `user` 5, `order` 5, `common` 3, `payment` 3, `security` 3, `config` 2, plus the application class — counted from `backend/src/main/java/com/ticketsewa/`.
 - **Frontend support modules:** `api.js`, `auth.jsx`, `demoApi.js`, `art.js`, plus the single shared component `components/EventCard.jsx` — counted from `frontend/src/`.
 - **Frontend sources total (17 files):** the 9 pages plus `App.jsx`, `main.jsx`, `index.css`, the 4 support modules above, and `components/EventCard.jsx` — counted from `frontend/src/`.
 - **Backend Java files (39):** 36 main sources + 3 integration tests (`DoubleCheckinTest`, `IdempotentVerificationTest`, `InventoryRaceTest`) — counted from `backend/`.
