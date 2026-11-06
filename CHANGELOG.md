@@ -4,6 +4,10 @@ All notable changes to this project, newest first.
 
 
 
+## 2026-11-06
+- README: code map now lists the 9 frontend routes (home, event detail, login, register, checkout, payment success/failed, tickets, organizer), counted from `frontend/src/App.jsx`
+- Re-verified: all 6 controller files still present (Auth, Event, Checkout, Payment, Ticket, Health)
+
 ## 2026-11-05
 - README: code map now states the backend files per package (event 8, ticket 6, user 5, order 5, common 3, payment 3, security 3, config 2, plus the application class = 36 main sources), counted from `backend/src/`
 - Re-verified: all 6 controller files still present (Auth, Event, Checkout, Payment, Ticket, Health)
