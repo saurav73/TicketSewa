@@ -140,6 +140,7 @@ type a ticket code → `ADMITTED`. Scan it again → `ALREADY_USED`.
 - **Frontend sources total (17 files):** the 9 pages plus `App.jsx`, `main.jsx`, `index.css`, the 4 support modules above, and `components/EventCard.jsx` — counted from `frontend/src/`.
 - **Backend Java files (39):** 36 main sources + 3 integration tests (`DoubleCheckinTest`, `IdempotentVerificationTest`, `InventoryRaceTest`) — counted from `backend/`.
 - **Backend endpoints (21 handler mappings):** 11 `@GetMapping` + 10 `@PostMapping` across the 6 controllers — counted from `backend/src/`.
+- **Frontend routes (9):** `/`, `/events/:id`, `/login`, `/register`, `/checkout/:orderId`, `/payment/success`, `/payment/failed`, `/tickets`, `/organizer` — counted from `frontend/src/App.jsx`.
 
 ## Tests
 
