@@ -109,6 +109,8 @@ type a ticket code → `ADMITTED`. Scan it again → `ALREADY_USED`.
 
 ## API overview
 
+The table below covers all 21 handler mappings (11 `@GetMapping` + 10 `@PostMapping`) across the 6 controllers, counted from `backend/src/`.
+
 | Method & path | Auth | What it does |
 |---|---|---|
 | `POST /api/auth/register` · `POST /api/auth/login` | – | JWT auth |
