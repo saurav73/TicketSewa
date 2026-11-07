@@ -4,6 +4,10 @@ All notable changes to this project, newest first.
 
 
 
+## 2026-11-07
+- README: API overview now states the table covers all 21 handler mappings (11 GET + 10 POST) across the 6 controllers, counted from `backend/src/`
+- Re-verified: the demo accounts in the README (`organizer@demo.np`, `fan@demo.np`, `admin@demo.np`) match `DemoSeeder`, which also seeds the "Himalayan Beats: Live in Lalitpur" event named in the walkthrough
+
 ## 2026-11-06
 - README: code map now lists the 9 frontend routes (home, event detail, login, register, checkout, payment success/failed, tickets, organizer), counted from `frontend/src/App.jsx`
 - Re-verified: all 6 controller files still present (Auth, Event, Checkout, Payment, Ticket, Health)
