@@ -4,6 +4,11 @@ All notable changes to this project, newest first.
 
 
 
+## 2026-11-08
+- README: architecture diagram now lists all 9 frontend pages (Home, EventDetail, Checkout, Login, Register, MyTickets, Organizer, PaymentSuccess, PaymentFailed) instead of the 5 it named before
+- `DemoSeeder`: the startup log line now names all three seeded demo accounts, including the admin account it already created
+- Re-verified: the 21 handler mappings (11 GET + 10 POST) across the 6 controllers are unchanged, the race test still asserts 20 buyers x 5 seats on a 50-seat tier with exactly 10 succeeding, and the SSE seat stream path matches between `EventController` and `frontend/src/api.js`
+
 ## 2026-11-07
 - README: API overview now states the table covers all 21 handler mappings (11 GET + 10 POST) across the 6 controllers, counted from `backend/src/`
 - Re-verified: the demo accounts in the README (`organizer@demo.np`, `fan@demo.np`, `admin@demo.np`) match `DemoSeeder`, which also seeds the "Himalayan Beats: Live in Lalitpur" event named in the walkthrough
