@@ -61,7 +61,7 @@ public class DemoSeeder {
           tier(e2, "Professional", 2500, 400),
           tier(e2, "Workshop + Conference", 5000, 100)));
 
-      log.info("Demo data seeded: organizer@demo.np / organizer123, fan@demo.np / fan12345");
+      log.info("Demo data seeded: organizer@demo.np / organizer123, fan@demo.np / fan12345, admin@demo.np / admin12345");
     };
   }
 
