@@ -26,7 +26,7 @@ the things that break in production:
 ```mermaid
 flowchart LR
     subgraph Client [React SPA]
-        UI[Pages: browse, event, checkout, tickets, organizer]
+        UI[Pages: Home, EventDetail, Checkout<br/>Login, Register, MyTickets<br/>Organizer, PaymentSuccess, PaymentFailed]
         SSE[EventSource: live seats]
     end
     subgraph API [Spring Boot 3]
