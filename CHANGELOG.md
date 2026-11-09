@@ -4,6 +4,9 @@ All notable changes to this project, newest first.
 
 
 
+## 2026-11-09
+- Re-verified: the 21 handler mappings (11 GET + 10 POST) across the 6 controllers are unchanged; the code map still matches the sources (36 main Java files in 8 packages, 17 frontend sources, 9 routes); the Docker Compose healthcheck (`mysqladmin ping`, backend waits on `service_healthy`) and the root Dockerfile's HF Spaces port (7860 via `PORT`) still match the README; the config table still covers all 14 `${...}` placeholders in `application.yml`
+
 ## 2026-11-08
 - README: architecture diagram now lists all 9 frontend pages (Home, EventDetail, Checkout, Login, Register, MyTickets, Organizer, PaymentSuccess, PaymentFailed) instead of the 5 it named before
 - `DemoSeeder`: the startup log line now names all three seeded demo accounts, including the admin account it already created
