@@ -4,6 +4,9 @@ All notable changes to this project, newest first.
 
 
 
+## 2026-11-11
+- Re-verified: the 21 handler mappings (11 GET + 10 POST) across the 6 controllers are unchanged and the README's API table still lists all 21; the code map still matches the sources (36 main Java files in 8 packages, 17 frontend sources, 9 routes in `App.jsx`); the demo accounts in the README (`organizer@demo.np`, `fan@demo.np`, `admin@demo.np`) still match `DemoSeeder`, including its startup log line; the Docker Compose ports (frontend `3000:80`, API `8080:8080`, MySQL `3306`) and `frontend/.env.example` (`VITE_API_URL`, `VITE_DEMO_MODE`) still match the README; the config table still covers all 14 `${...}` placeholders in `application.yml`
+
 ## 2026-11-10
 - Re-verified: the 21 handler mappings (11 GET + 10 POST) across the 6 controllers are unchanged; the code map still matches the sources (36 main Java files in 8 packages, 17 frontend sources, 9 routes); the Docker Compose ports (frontend `3000:80`, API `8080:8080`) and `frontend/.env.example` (`VITE_API_URL`, `VITE_DEMO_MODE`) still match the README; the config table still covers all 14 `${...}` placeholders in `application.yml`; the frontend still runs React 18.3 + Vite 5 + React Router 6
 
