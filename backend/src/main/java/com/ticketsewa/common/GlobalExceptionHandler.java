@@ -14,12 +14,14 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+  /** Maps a domain ApiException to its status code with a JSON error body. */
   @ExceptionHandler(ApiException.class)
   public ResponseEntity<Map<String, Object>> handleApi(ApiException e) {
     return ResponseEntity.status(e.getStatus())
         .body(Map.of("error", e.getMessage(), "status", e.getStatus()));
   }
 
+  /** Maps a bean-validation failure to a 400 carrying the first field error. */
   @ExceptionHandler(MethodArgumentNotValidException.class)
   public ResponseEntity<Map<String, Object>> handleValidation(MethodArgumentNotValidException e) {
     String msg = e.getBindingResult().getFieldErrors().stream()
