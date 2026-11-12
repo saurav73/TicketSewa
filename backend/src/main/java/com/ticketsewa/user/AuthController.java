@@ -35,6 +35,7 @@ public class AuthController {
     return ResponseEntity.ok(auth.login(req));
   }
 
+  /** Current user profile (name, email, role) for the logged-in user. */
   @GetMapping("/me")
   public ResponseEntity<Map<String, String>> me(@AuthenticationPrincipal UserDetails principal) {
     var u = userDetails.loadDomainUser(principal.getUsername());

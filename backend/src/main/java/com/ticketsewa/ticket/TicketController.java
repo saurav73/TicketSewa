@@ -26,6 +26,7 @@ public class TicketController {
     return tickets.myTickets(me.getUsername());
   }
 
+  /** Owner: the ticket's QR code as a PNG image. */
   @GetMapping("/tickets/{id}/qr")
   public ResponseEntity<byte[]> qr(@AuthenticationPrincipal UserDetails me, @PathVariable Long id) {
     return ResponseEntity.ok()

@@ -55,6 +55,7 @@ public class PaymentController {
     return ResponseEntity.ok(orders.demoPay(me.getUsername(), body.get("orderId"), props));
   }
 
+  /** Public probe: whether demo-mode one-click payment is on. */
   @GetMapping("/demo/enabled")
   public Map<String, Boolean> demoEnabled() {
     return Map.of("demoMode", props.isDemoMode());

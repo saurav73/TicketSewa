@@ -38,6 +38,7 @@ public class CheckoutController {
     return orders.get(me.getUsername(), id);
   }
 
+  /** Owner: builds the eSewa payment form fields for an order. */
   @PostMapping("/{id}/payment-form")
   public ResponseEntity<?> paymentForm(@AuthenticationPrincipal UserDetails me, @PathVariable String id) {
     return ResponseEntity.ok(orders.paymentForm(me.getUsername(), id));
