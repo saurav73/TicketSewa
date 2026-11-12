@@ -4,6 +4,10 @@ All notable changes to this project, newest first.
 
 
 
+## 2026-11-12
+- Docs: method-level Javadoc added to the last 20 undocumented public methods — `ApiException`'s status accessor and five 4xx factories, both `GlobalExceptionHandler` handlers, the four `SecurityConfig` beans and `JwtAuthFilter.doFilterInternal`, `SeatBroadcaster`'s subscribe/broadcast pair and `TicketTier.getRemaining`, plus the `paymentForm`, `demoEnabled`, `qr` and `me` endpoints; every public method in the backend now carries a Javadoc or a one-line doc comment
+- Re-verified: the 21 handler mappings (11 GET + 10 POST) across the 6 controllers are unchanged and the README's API table still lists all 21; the code map still matches the sources (36 main Java files in 8 packages, 17 frontend sources, 9 routes in `App.jsx`); the demo mirror in `demoApi.js` still covers all 21 endpoints including `/api/checkin`; the 6 demo events in `demoApi.js` still match the README
+
 ## 2026-11-11
 - Re-verified: the 21 handler mappings (11 GET + 10 POST) across the 6 controllers are unchanged and the README's API table still lists all 21; the code map still matches the sources (36 main Java files in 8 packages, 17 frontend sources, 9 routes in `App.jsx`); the demo accounts in the README (`organizer@demo.np`, `fan@demo.np`, `admin@demo.np`) still match `DemoSeeder`, including its startup log line; the Docker Compose ports (frontend `3000:80`, API `8080:8080`, MySQL `3306`) and `frontend/.env.example` (`VITE_API_URL`, `VITE_DEMO_MODE`) still match the README; the config table still covers all 14 `${...}` placeholders in `application.yml`
 
