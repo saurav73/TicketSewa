@@ -28,6 +28,11 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     this.userDetails = userDetails;
   }
 
+  /**
+   * Validates the Bearer token (if present) and installs the principal into
+   * the security context; requests without a token pass through
+   * unauthenticated so the public paths still work.
+   */
   @Override
   protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
       throws ServletException, IOException {

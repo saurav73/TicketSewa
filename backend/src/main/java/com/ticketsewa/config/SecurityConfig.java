@@ -31,6 +31,11 @@ public class SecurityConfig {
   @Value("${app.frontend-url}")
   private String frontendUrl;
 
+  /**
+   * Builds the stateless filter chain: CSRF off, CORS from the SPA origin,
+   * public auth/event/health/demo paths, the JWT filter before Spring's auth
+   * filter, and authentication required for every other /api path.
+   */
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http, JwtAuthFilter jwtFilter) throws Exception {
     http
@@ -49,6 +54,10 @@ public class SecurityConfig {
     return http.build();
   }
 
+  /**
+   * CORS policy for the SPA origin: GET/POST/PUT/DELETE/OPTIONS, any headers,
+   * credentials allowed.
+   */
   @Bean
   public CorsConfigurationSource corsSource() {
     var cfg = new CorsConfiguration();
@@ -61,11 +70,13 @@ public class SecurityConfig {
     return src;
   }
 
+  /** BCrypt password hashing for stored user passwords. */
   @Bean
   public PasswordEncoder passwordEncoder() {
     return new BCryptPasswordEncoder();
   }
 
+  /** Exposes Spring's AuthenticationManager for the login flow. */
   @Bean
   public AuthenticationManager authenticationManager(AuthenticationConfiguration cfg) throws Exception {
     return cfg.getAuthenticationManager();
