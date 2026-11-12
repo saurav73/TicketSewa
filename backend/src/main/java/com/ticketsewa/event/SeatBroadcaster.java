@@ -18,6 +18,10 @@ import java.util.concurrent.*;
 public class SeatBroadcaster {
   private final Map<Long, CopyOnWriteArrayList<SseEmitter>> subs = new ConcurrentHashMap<>();
 
+  /**
+   * Registers an SSE emitter for an event's live seat stream (60s timeout);
+   * the emitter is removed on completion or timeout.
+   */
   public SseEmitter subscribe(Long eventId) {
     SseEmitter emitter = new SseEmitter(60_000L);
     subs.computeIfAbsent(eventId, k -> new CopyOnWriteArrayList<>()).add(emitter);
@@ -26,6 +30,10 @@ public class SeatBroadcaster {
     return emitter;
   }
 
+  /**
+   * Pushes the latest tier list to every subscriber of an event; emitters
+   * that fail or are closed are dropped.
+   */
   public void broadcast(Long eventId, List<EventService.TierDto> tiers) {
     var list = subs.getOrDefault(eventId, new CopyOnWriteArrayList<>());
     for (SseEmitter e : list) {

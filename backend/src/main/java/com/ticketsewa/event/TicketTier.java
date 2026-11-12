@@ -38,6 +38,7 @@ public class TicketTier {
   @Version
   private Long version;
 
+  /** Unsold seats in this tier (total minus sold), never below zero. */
   @Transient
   public int getRemaining() {
     return Math.max(0, quantityTotal - quantitySold);
