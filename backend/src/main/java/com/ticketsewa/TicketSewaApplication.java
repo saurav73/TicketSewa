@@ -14,6 +14,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableAsync
 @EnableScheduling
 public class TicketSewaApplication {
+  /**
+   * Application entry point. Boots the Spring context (web, JPA, security,
+   * scheduling) and serves the API until the process is stopped.
+   */
   public static void main(String[] args) {
     SpringApplication.run(TicketSewaApplication.class, args);
   }
