@@ -4,6 +4,10 @@ All notable changes to this project, newest first.
 
 
 
+## 2026-11-13
+- Docs: finished the Javadoc backlog — the last two undocumented public methods (`TicketSewaApplication.main`, `HealthController.health`) now carry Javadoc (yesterday's entry said every public method was covered; these two were missed), plus the `DemoSeeder` seed bean and its no-op guards, and the four concurrency test methods with their setups
+- Re-verified: the 21 handler mappings (11 GET + 10 POST) across the 6 controllers are unchanged and the README's API table still lists all 21; the code map still matches the sources (36 main Java files in 8 packages, 17 frontend sources, 9 pages, 9 routes); the 30-minute reservation hold with the every-minute expiry job and the `SEED_DEMO` default (`true`) still match the README
+
 ## 2026-11-12
 - Docs: method-level Javadoc added to the last 20 undocumented public methods — `ApiException`'s status accessor and five 4xx factories, both `GlobalExceptionHandler` handlers, the four `SecurityConfig` beans and `JwtAuthFilter.doFilterInternal`, `SeatBroadcaster`'s subscribe/broadcast pair and `TicketTier.getRemaining`, plus the `paymentForm`, `demoEnabled`, `qr` and `me` endpoints; every public method in the backend now carries a Javadoc or a one-line doc comment
 - Re-verified: the 21 handler mappings (11 GET + 10 POST) across the 6 controllers are unchanged and the README's API table still lists all 21; the code map still matches the sources (36 main Java files in 8 packages, 17 frontend sources, 9 routes in `App.jsx`); the demo mirror in `demoApi.js` still covers all 21 endpoints including `/api/checkin`; the 6 demo events in `demoApi.js` still match the README
