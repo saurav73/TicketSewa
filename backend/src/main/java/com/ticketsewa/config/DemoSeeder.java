@@ -22,6 +22,13 @@ import java.util.List;
 public class DemoSeeder {
   private static final Logger log = LoggerFactory.getLogger(DemoSeeder.class);
 
+  /**
+   * Seeds the demo data on first boot: one organizer, one attendee and one
+   * admin account plus two published events with ticket tiers. Runs in every
+   * profile except {@code test}; it is a no-op when {@code app.seed-demo} is
+   * false or when the database already holds users, so reboots never duplicate
+   * the demo accounts.
+   */
   @Bean
   @Profile("!test")
   CommandLineRunner seed(@Value("${app.seed-demo}") boolean seedDemo,
