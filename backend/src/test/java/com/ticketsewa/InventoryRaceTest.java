@@ -28,6 +28,7 @@ class InventoryRaceTest {
 
   private TicketTier tier;
 
+  /** Builds one published event with a 50-seat "General" tier to race over. */
   @BeforeEach
   void setup() {
     User org = users.save(User.builder().name("Org").email("org@t.np")
@@ -39,6 +40,11 @@ class InventoryRaceTest {
         .priceNpr(100).quantityTotal(50).build());
   }
 
+  /**
+   * 20 buyers race for 5 seats each on a 50-seat tier. Exactly 10 must
+   * succeed and {@code quantitySold} must stop at 50 — the conditional
+   * UPDATE must never let the 11th buyer through.
+   */
   @Test
   void concurrentReservationsNeverOversell() throws Exception {
     int threads = 20, perBuyer = 5;

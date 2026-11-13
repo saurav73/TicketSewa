@@ -35,6 +35,10 @@ class DoubleCheckinTest {
 
   private String code;
 
+  /**
+   * Creates a paid quantity-1 order and keeps its first ticket code, so the
+   * test can scan the same code from two gates at once.
+   */
   @BeforeEach
   void setup() {
     User org = users.save(User.builder().name("Org").email("org3@t.np")
@@ -56,6 +60,11 @@ class DoubleCheckinTest {
     code = issued.get(0).getCode();
   }
 
+  /**
+   * Two gates scan the same QR code concurrently. Exactly one scan must be
+   * ADMITTED; the other must see ALREADY_USED — the atomic check-in must
+   * never admit one ticket twice.
+   */
   @Test
   void concurrentScansAdmitOnce() throws Exception {
     var pool = Executors.newFixedThreadPool(2);

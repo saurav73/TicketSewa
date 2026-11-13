@@ -42,6 +42,10 @@ class IdempotentVerificationTest {
   private String fanEmail;
   private String idemKey;
 
+  /**
+   * Mocks eSewa verification to succeed, then creates a quantity-2 order
+   * under a fresh idempotency key for the double-callback tests.
+   */
   @BeforeEach
   void setup() {
     when(esewa.verify(anyString(), anyString(), anyString())).thenReturn(true);
@@ -61,6 +65,11 @@ class IdempotentVerificationTest {
         new OrderService.CreateOrderRequest(e.getId(), tier.getId(), 2, idemKey)));
   }
 
+  /**
+   * The same eSewa success callback delivered twice, concurrently, must
+   * leave the order PAID exactly once and issue exactly 2 tickets for the
+   * quantity-2 order — never a second set.
+   */
   @Test
   void doubleCallbackIssuesTicketsOnce() throws Exception {
     var req = new OrderService.VerifyRequest(order.id(), String.valueOf(order.amountNpr()), "REF123");
@@ -77,6 +86,10 @@ class IdempotentVerificationTest {
     assertEquals(2, count, "exactly 2 tickets for a quantity-2 order, never 4");
   }
 
+  /**
+   * Creating an order twice with the same idempotency key must return the
+   * original order (same id), not create a second order or reserve seats twice.
+   */
   @Test
   void doubleCreateWithSameIdempotencyKeyMakesOneOrder() {
     var req = new OrderService.CreateOrderRequest(order.eventId(), order.tierId(), 2, idemKey);
