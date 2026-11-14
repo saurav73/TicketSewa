@@ -25,6 +25,14 @@ public class EventService {
   private final CustomUserDetailsService userDetails;
   private final SeatBroadcaster seats;
 
+  /**
+   * Builds the event service from its data and supporting services.
+   *
+   * @param events repository for event records
+   * @param tiers repository for ticket tiers belonging to events
+   * @param userDetails service resolving the currently authenticated organizer
+   * @param seats broadcaster pushing live seat-availability updates to clients
+   */
   public EventService(EventRepository events, TicketTierRepository tiers,
                       CustomUserDetailsService userDetails, SeatBroadcaster seats) {
     this.events = events;

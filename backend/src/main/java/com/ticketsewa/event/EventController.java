@@ -23,6 +23,11 @@ import java.util.List;
 public class EventController {
   private final EventService service;
 
+  /**
+   * Builds the event endpoints around the event service that owns event and ticket-tier data.
+   *
+   * @param service event service used by every endpoint in this controller
+   */
   public EventController(EventService service) {
     this.service = service;
   }

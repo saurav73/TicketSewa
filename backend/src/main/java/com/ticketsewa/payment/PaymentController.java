@@ -20,6 +20,12 @@ public class PaymentController {
   private final OrderService orders;
   private final EsewaProperties props;
 
+  /**
+   * Builds the payment endpoints around the order service and the configured eSewa settings.
+   *
+   * @param orders order service verifying and completing paid orders
+   * @param props eSewa merchant configuration (product code, secret, callback URLs)
+   */
   public PaymentController(OrderService orders, EsewaProperties props) {
     this.orders = orders;
     this.props = props;

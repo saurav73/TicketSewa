@@ -20,6 +20,12 @@ public class JwtService {
   private final SecretKey key;
   private final long expiryMillis;
 
+  /**
+   * Builds the JWT service from the configured signing secret and token lifetime.
+   *
+   * @param secret HMAC signing secret from {@code app.jwt.secret}
+   * @param expiryHours token lifetime in hours, from {@code app.jwt.expiry-hours}
+   */
   public JwtService(@Value("${app.jwt.secret}") String secret,
                     @Value("${app.jwt.expiry-hours}") long expiryHours) {
     this.key = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));

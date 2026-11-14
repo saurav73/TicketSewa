@@ -24,6 +24,11 @@ public class EsewaService {
   private final EsewaProperties props;
   private final RestClient http = RestClient.create();
 
+  /**
+   * Builds the eSewa payment service from the configured merchant settings.
+   *
+   * @param props eSewa merchant configuration (product code, secret, callback URLs)
+   */
   public EsewaService(EsewaProperties props) {
     this.props = props;
   }

@@ -20,6 +20,13 @@ public class AuthController {
   private final AuthService auth;
   private final CustomUserDetailsService userDetails;
 
+  /**
+   * Builds the auth endpoints around the auth service and the user-details service that
+   * loads the currently authenticated user.
+   *
+   * @param auth auth service registering users and issuing tokens
+   * @param userDetails service loading user details for the authenticated principal
+   */
   public AuthController(AuthService auth, CustomUserDetailsService userDetails) {
     this.auth = auth;
     this.userDetails = userDetails;

@@ -18,6 +18,13 @@ public class AuthService {
   private final PasswordEncoder encoder;
   private final JwtService jwt;
 
+  /**
+   * Builds the auth service from its user store, password encoder and token service.
+   *
+   * @param users repository for user accounts
+   * @param encoder password encoder for hashing and checking passwords
+   * @param jwt service issuing and validating JWTs
+   */
   public AuthService(UserRepository users, PasswordEncoder encoder, JwtService jwt) {
     this.users = users;
     this.encoder = encoder;

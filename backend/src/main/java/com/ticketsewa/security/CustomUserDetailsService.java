@@ -18,6 +18,11 @@ import java.util.List;
 public class CustomUserDetailsService implements UserDetailsService {
   private final UserRepository users;
 
+  /**
+   * Builds the user-details service around the user repository it loads accounts from.
+   *
+   * @param users repository for user accounts
+   */
   public CustomUserDetailsService(UserRepository users) {
     this.users = users;
   }

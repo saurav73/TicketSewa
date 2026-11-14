@@ -29,6 +29,13 @@ public class TicketService {
   private final QrCodeService qr;
   private final CustomUserDetailsService userDetails;
 
+  /**
+   * Builds the ticket service from its repository and collaborators.
+   *
+   * @param tickets repository for issued tickets
+   * @param qr service generating the QR code printed on each ticket
+   * @param userDetails service resolving the currently authenticated ticket owner
+   */
   public TicketService(TicketRepository tickets, QrCodeService qr, CustomUserDetailsService userDetails) {
     this.tickets = tickets;
     this.qr = qr;

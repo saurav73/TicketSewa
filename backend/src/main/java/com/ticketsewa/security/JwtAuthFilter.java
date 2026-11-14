@@ -23,6 +23,12 @@ public class JwtAuthFilter extends OncePerRequestFilter {
   private final JwtService jwt;
   private final CustomUserDetailsService userDetails;
 
+  /**
+   * Builds the JWT authentication filter from the token service and the user-details service.
+   *
+   * @param jwt service parsing and validating the bearer token on each request
+   * @param userDetails service loading the account named by a valid token
+   */
   public JwtAuthFilter(JwtService jwt, CustomUserDetailsService userDetails) {
     this.jwt = jwt;
     this.userDetails = userDetails;

@@ -17,6 +17,11 @@ import java.util.Map;
 public class TicketController {
   private final TicketService tickets;
 
+  /**
+   * Builds the ticket endpoints around the ticket service that issues and looks up tickets.
+   *
+   * @param tickets ticket service used by every endpoint in this controller
+   */
   public TicketController(TicketService tickets) {
     this.tickets = tickets;
   }

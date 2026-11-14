@@ -18,6 +18,11 @@ import java.util.List;
 public class CheckoutController {
   private final OrderService orders;
 
+  /**
+   * Builds the checkout endpoints around the order service that creates and pays for orders.
+   *
+   * @param orders order service used by every endpoint in this controller
+   */
   public CheckoutController(OrderService orders) {
     this.orders = orders;
   }

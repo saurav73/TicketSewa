@@ -44,6 +44,20 @@ public class OrderService {
   private final TicketService tickets;
   private final PlatformTransactionManager txManager;
 
+  /**
+   * Builds the order service from its repositories and collaborators. Orders are placed
+   * inside explicit transactions (via {@code txManager}) so seat holds and order rows
+   * commit or roll back together.
+   *
+   * @param orders repository for purchase orders
+   * @param tiers repository for ticket tiers being bought
+   * @param events repository for the events being booked
+   * @param userDetails service resolving the currently authenticated buyer
+   * @param eventService service re-checking event and seat state during checkout
+   * @param esewa service building and verifying eSewa payment requests
+   * @param tickets service issuing tickets once an order is paid
+   * @param txManager transaction manager for atomic order placement
+   */
   public OrderService(PurchaseOrderRepository orders, TicketTierRepository tiers,
                       EventRepository events, CustomUserDetailsService userDetails,
                       EventService eventService, EsewaService esewa, TicketService tickets,

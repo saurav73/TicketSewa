@@ -4,6 +4,12 @@ package com.ticketsewa.common;
 public class ApiException extends RuntimeException {
   private final int status;
 
+  /**
+   * Creates an API error carrying the HTTP status the client should receive.
+   *
+   * @param status HTTP status code for the error response
+   * @param message human-readable description of what went wrong
+   */
   public ApiException(int status, String message) {
     super(message);
     this.status = status;
