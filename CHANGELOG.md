@@ -2,6 +2,10 @@
 
 All notable changes to this project, newest first.
 
+## 2026-11-14
+- Docs: Javadoc added to the last 14 undocumented constructors — all five controllers (`Event`, `Checkout`, `Payment`, `Ticket`, `Auth`), the five services (`EventService`, `OrderService` with its transaction manager, `EsewaService`, `TicketService`, `AuthService`), the three security classes (`CustomUserDetailsService`, `JwtAuthFilter`, `JwtService`) and the `ApiException` constructor; every constructor in the backend now carries a Javadoc
+- Re-verified: the 21 handler mappings (11 GET + 10 POST) across the 6 controllers are unchanged and the README's API table still lists all 21; the code map still matches the sources (36 main Java files in 8 packages, 17 frontend sources, 9 pages, 9 routes)
+
 
 
 ## 2026-11-13
