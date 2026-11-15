@@ -26,6 +26,9 @@ public class TicketController {
     this.tickets = tickets;
   }
 
+  /** Lists the authenticated buyer's tickets (their wallet).
+       * @param me the authenticated buyer
+       * @return the buyer's tickets */
   @GetMapping("/tickets/mine")
   public List<TicketService.TicketDto> mine(@AuthenticationPrincipal UserDetails me) {
     return tickets.myTickets(me.getUsername());

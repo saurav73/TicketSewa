@@ -27,17 +27,28 @@ public class CheckoutController {
     this.orders = orders;
   }
 
+  /** Creates an order for the authenticated buyer: reserves the requested seats and returns the order.
+       * @param me the authenticated buyer
+       * @param req validated order request (event, tier, quantity)
+       * @return the created order */
   @PostMapping
   public ResponseEntity<OrderService.OrderDto> create(@AuthenticationPrincipal UserDetails me,
                                                      @Valid @RequestBody OrderService.CreateOrderRequest req) {
     return ResponseEntity.ok(orders.createOrder(me.getUsername(), req));
   }
 
+  /** Lists the authenticated buyer's orders, newest first.
+       * @param me the authenticated buyer
+       * @return the buyer's orders */
   @GetMapping("/mine")
   public List<OrderService.OrderDto> mine(@AuthenticationPrincipal UserDetails me) {
     return orders.myOrders(me.getUsername());
   }
 
+  /** Returns one of the authenticated buyer's orders by id.
+       * @param me the authenticated buyer
+       * @param id order id
+       * @return the requested order */
   @GetMapping("/{id}")
   public OrderService.OrderDto get(@AuthenticationPrincipal UserDetails me, @PathVariable String id) {
     return orders.get(me.getUsername(), id);

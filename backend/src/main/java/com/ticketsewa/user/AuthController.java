@@ -32,11 +32,17 @@ public class AuthController {
     this.userDetails = userDetails;
   }
 
+  /** Registers a new user and returns a JWT plus the user profile.
+       * @param req validated registration details
+       * @return the auth response with token and user */
   @PostMapping("/register")
   public ResponseEntity<AuthService.AuthResponse> register(@Valid @RequestBody AuthService.RegisterRequest req) {
     return ResponseEntity.ok(auth.register(req));
   }
 
+  /** Logs a user in and returns a JWT plus the user profile.
+       * @param req validated email and password
+       * @return the auth response with token and user */
   @PostMapping("/login")
   public ResponseEntity<AuthService.AuthResponse> login(@Valid @RequestBody AuthService.LoginRequest req) {
     return ResponseEntity.ok(auth.login(req));
