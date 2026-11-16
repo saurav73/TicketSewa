@@ -16,7 +16,8 @@ import java.util.List;
 @Service
 /**
  * Organizer-side event management: creating events with ticket tiers and
- * cancelling them (which releases all held seats). Broadcasts tier inventory
+ * cancelling them (which stops further sales; seats held by unpaid orders
+ * are released only when those orders expire). Broadcasts tier inventory
  * changes so the SSE seat stream stays live.
  */
 public class EventService {
