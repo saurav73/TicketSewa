@@ -9,6 +9,12 @@ const GRADS = [
   ['#f857a6', '#ff5858'],
   ['#30cfd0', '#330867'],
 ];
+/**
+ * Picks a stable gradient for an event id, so the same event always gets the
+ * same banner artwork. Cycles through the GRADS palette by id.
+ * @param {number|string} id - Event id.
+ * @returns {string} CSS linear-gradient value.
+ */
 export function gradFor(id) {
   const [a, b] = GRADS[Number(id) % GRADS.length];
   return `linear-gradient(120deg, ${a}, ${b})`;
