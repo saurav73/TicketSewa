@@ -8,8 +8,14 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import { api } from './api';
 
 const AuthCtx = createContext(null);
+/** Returns the auth state ({ user, loading, login, register, logout, isOrganizer }); must be used inside <AuthProvider>. */
 export const useAuth = () => useContext(AuthCtx);
 
+/**
+ * Provides JWT auth state to the route tree. On boot it restores the session
+ * from the `ts_token` in localStorage (fetching /api/auth/me); login/register
+ * store the new token and user, logout clears both.
+ */
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
