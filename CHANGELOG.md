@@ -2,6 +2,11 @@
 
 All notable changes to this project, newest first.
 
+## 2026-11-16
+- Docs: corrected the `EventService` class doc — cancelling an event stops sales, it does not release held seats (held seats are released only when the unpaid order expires); JSDoc added to the frontend shared helpers — `api.js` (`api`, `sseSubscribe`, `fmtNpr`, `fmtDate`, `DEMO_MODE`, `apiBase`), `art.js` (`gradFor`), `auth.jsx` (`useAuth`, `AuthProvider`) and `EventCard.jsx` (`dateBadge`, `PinIcon`, `ClockIcon`, `EventCard`)
+- Re-verified: the backend is now fully documented (every public method and constructor carries a Javadoc or one-line doc comment); the 21 handler mappings (11 GET + 10 POST) across the 6 controllers are unchanged and the README's API table still lists all 21; the code map still matches the sources (36 main Java files in 8 packages, 17 frontend sources, 9 pages, 9 routes)
+
+
 ## 2026-11-15
 - Docs: Javadoc added to the last six undocumented endpoints — `Checkout` create/mine/get, the ticket wallet (`Ticket` mine) and `Auth` register/login; every public method in the backend now carries a Javadoc or a one-line doc comment
 - Re-verified: the 21 handler mappings (11 GET + 10 POST) across the 6 controllers are unchanged and the README's API table still lists all 21; the code map still matches the sources (36 main Java files in 8 packages, 17 frontend sources, 9 pages, 9 routes)
