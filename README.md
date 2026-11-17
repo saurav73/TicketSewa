@@ -91,6 +91,10 @@ cd frontend && npm install && npm run dev   # → http://localhost:5173
 **Demo accounts** (seeded on first boot): `organizer@demo.np / organizer123`,
 `fan@demo.np / fan12345`, `admin@demo.np / admin12345`.
 
+The backend seeds two events (`Himalayan Beats` and `Kathmandu Tech Summit
+2026`); the full six-event catalogue lives in the frontend's in-browser demo
+mirror (`frontend/src/demoApi.js`), used when `VITE_API_URL` is unset.
+
 **Try the full flow:** login as fan → open *Himalayan Beats* → buy 2 General tickets →
 *Demo pay* → *My Tickets* shows QR codes → login as organizer → *Check-in* tab →
 type a ticket code → `ADMITTED`. Scan it again → `ALREADY_USED`.
