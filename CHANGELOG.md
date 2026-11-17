@@ -2,6 +2,10 @@
 
 All notable changes to this project, newest first.
 
+## 2026-11-17
+- Docs: README now states JWT tokens expire after 24 hours (`app.jwt.expiry-hours`, hard-coded in `application.yml`) and warns that `JWT_SECRET` ships with a dev-only default that must be replaced with a long random value in deployed environments; clarified the demo data split — the backend seeds 2 events while the full 6-event catalogue lives in the frontend's in-browser demo mirror (`frontend/src/demoApi.js`)
+- Re-verified: the 21 handler mappings (11 GET + 10 POST) across the 6 controllers are unchanged and the README's API table still lists all 21; the code map still matches the sources (36 main Java files in 8 packages, 17 frontend sources, 9 pages, 9 routes); Spring Boot 3.2.5 / Java 17 / React 18.3 / Vite 5 / React Router 6 versions in the README match `pom.xml` and `package.json`; the 30-minute seat hold with the every-minute expiry job, the 20×5-seat race test, the H2 test setup, the atomic reserve/release queries, the demo accounts, and the Docker Compose ports/healthcheck all still match the code
+
 ## 2026-11-16
 - Docs: corrected the `EventService` class doc — cancelling an event stops sales, it does not release held seats (held seats are released only when the unpaid order expires); JSDoc added to the frontend shared helpers — `api.js` (`api`, `sseSubscribe`, `fmtNpr`, `fmtDate`, `DEMO_MODE`, `apiBase`), `art.js` (`gradFor`), `auth.jsx` (`useAuth`, `AuthProvider`) and `EventCard.jsx` (`dateBadge`, `PinIcon`, `ClockIcon`, `EventCard`)
 - Re-verified: the backend is now fully documented (every public method and constructor carries a Javadoc or one-line doc comment); the 21 handler mappings (11 GET + 10 POST) across the 6 controllers are unchanged and the README's API table still lists all 21; the code map still matches the sources (36 main Java files in 8 packages, 17 frontend sources, 9 pages, 9 routes)
