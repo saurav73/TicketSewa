@@ -164,7 +164,9 @@ driver class, default `com.mysql.cj.jdbc.Driver` — set to
 `ESEWA_FAILURE_URL`, `ESEWA_DEMO_MODE`, `SEED_DEMO`.
 
 JWT tokens expire after 24 hours (`app.jwt.expiry-hours` in
-`application.yml`, hard-coded — not env-configurable).
+`application.yml`, hard-coded — not env-configurable). `JWT_SECRET` ships
+with a dev-only default in `application.yml` — set a long random value in
+every deployed environment, or anyone with the default can forge tokens.
 
 **Frontend** (Vite, via `.env` — see `frontend/.env.example`): `VITE_API_URL` (backend base URL — when unset,
 the app runs fully in-browser in demo mode), `VITE_DEMO_MODE` (`true` forces
