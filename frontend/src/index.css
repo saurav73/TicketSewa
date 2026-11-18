@@ -1,3 +1,10 @@
+/* index.css — the app's only stylesheet (no CSS framework).
+ * Dark theme: design tokens in :root (backgrounds, ink, accent green,
+ * gold, danger) plus Space Grotesk display / Inter body fonts.
+ * Sections, in order: nav, layout, buttons/inputs, hero, event cards,
+ * detail, boarding-pass tickets, forms/alerts, organizer, checkout,
+ * ticker, featured spotlight, filter pills, how-it-works, stats,
+ * testimonials, organizer CTA, footer, event detail, responsive. */
 :root {
   --bg: #0a0c0f;
   --bg2: #0e1218;
