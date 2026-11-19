@@ -2,6 +2,9 @@
 
 All notable changes to this project, newest first.
 
+## 2026-11-19
+- Re-verified: the 21 handler mappings (11 GET + 10 POST) across the 6 controllers are unchanged and the README's API table still lists all 21; the code map still matches the sources (36 main Java files in 8 packages, 17 frontend sources, 9 pages, 9 routes); Docker Compose still exposes MySQL on 3306, the API on 8080 and the frontend on 3000 (container port 80) with the MySQL healthcheck the backend waits on; the root Dockerfile still targets the HF Spaces port 7860; `application.yml` defaults still match `backend/.env.example` (DB_PASS `password`, JWT expiry 24h, `SEED_DEMO` true, eSewa UAT URLs, demo mode on); the backend still seeds the same 2 events and 3 demo accounts, and the frontend demo mirror still holds the 6-event catalogue
+
 ## 2026-11-18
 - Docs: fixed `backend/.env.example` — `DB_PASS` was blank although the file claims its defaults match the app's built-in values; it now reads `password`, matching the `application.yml` default and `docker-compose.yml`; added a file-header comment to `frontend/src/index.css` (the only frontend source that lacked one — dark-theme tokens and section list) and to `frontend/Dockerfile` (the only Dockerfile that lacked one — Vite build + nginx serve, SPA fallback, `VITE_API_URL` baked in at build time)
 - Re-verified: the 21 handler mappings (11 GET + 10 POST) across the 6 controllers are unchanged and the README's API table still lists all 21; the code map still matches the sources (36 main Java files in 8 packages, 17 frontend sources, 9 pages, 9 routes); the 6 demo events in `demoApi.js` still use relative dates (21–53 days out) and the demo accounts match the README
