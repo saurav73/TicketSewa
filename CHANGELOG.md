@@ -2,6 +2,10 @@
 
 All notable changes to this project, newest first.
 
+## 2026-11-20
+- README: the API overview intro now records the re-verification date (2026-11-20) and points readers at the 3 ticket endpoints at the foot of the table, which are easy to miss among the 21 mappings
+- Re-verified: the 21 handler mappings (11 GET + 10 POST) across the 6 controllers are unchanged and the README's API table lists all 21, including the ticket endpoints; the code map still matches the sources (36 main Java files in 8 packages — event 8, ticket 6, user 5, order 5, common 3, payment 3, security 3, config 2, plus the application class — 17 frontend sources, 9 pages, 9 routes, 39 Java files with the same 3 integration tests); Docker Compose still exposes MySQL on 3306, the API on 8080 and the frontend on 3000 (container port 80) with the MySQL healthcheck the backend waits on; the root Dockerfile still targets the HF Spaces port 7860; `application.yml` defaults still match `backend/.env.example` (DB_PASS `password`, JWT expiry 24h, `SEED_DEMO` true, eSewa UAT URLs, demo mode on); the backend still seeds the same 2 events and 3 demo accounts, and the frontend demo mirror still holds the 6-event catalogue; demo-mode QR codes are generated client-side (`demoQrDataUrl`) so `MyTickets` never calls the server QR endpoint in demo mode
+
 ## 2026-11-19
 - Re-verified: the 21 handler mappings (11 GET + 10 POST) across the 6 controllers are unchanged and the README's API table still lists all 21; the code map still matches the sources (36 main Java files in 8 packages, 17 frontend sources, 9 pages, 9 routes); Docker Compose still exposes MySQL on 3306, the API on 8080 and the frontend on 3000 (container port 80) with the MySQL healthcheck the backend waits on; the root Dockerfile still targets the HF Spaces port 7860; `application.yml` defaults still match `backend/.env.example` (DB_PASS `password`, JWT expiry 24h, `SEED_DEMO` true, eSewa UAT URLs, demo mode on); the backend still seeds the same 2 events and 3 demo accounts, and the frontend demo mirror still holds the 6-event catalogue
 
