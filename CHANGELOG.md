@@ -2,6 +2,10 @@
 
 All notable changes to this project, newest first.
 
+## 2026-11-25
+- README: the API overview intro now records the re-verification date (2026-11-25); all 21 handler mappings (11 `@GetMapping` + 10 `@PostMapping`) still present across the 6 controllers, including the 3 ticket endpoints
+- Re-verified: `backend/.env.example` still matches `application.yml` key for key — all 14 variables present; the code map still matches the sources (36 main Java files in 8 packages — event, ticket, user, order, common, payment, security, config — plus the application class; 17 frontend sources, 9 pages, 9 routes)
+
 ## 2026-11-23
 - README: the API overview intro now records the re-verification date (2026-11-23); all 21 handler mappings (11 `@GetMapping` + 10 `@PostMapping`) still present across the 6 controllers, including the 3 ticket endpoints
 - Re-verified: `backend/.env.example` still matches `application.yml` key for key — all 14 variables present with the same defaults (PORT 8080, MySQL `DB_URL`/`DB_USER` root/`DB_PASS` password/`DB_DRIVER`, `JWT_SECRET`, `FRONTEND_URL` http://localhost:5173, `SEED_DEMO` true, eSewa UAT merchant/URLs, demo mode on); no new env var has crept into the code unrecorded
